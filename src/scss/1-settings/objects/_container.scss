@@ -1,0 +1,16 @@
+/* Objects: Alert */
+
+// Namespace
+$container-namespace:                   $namespace !default;
+
+// Width
+$container-width:                       1200 !default;
+
+// Sizes
+$container-sizes: (
+    'xs': 600,
+    'sm': 960,
+    'md': $container-width,
+    'lg': 1280,
+    'xl': 1440
+);

@@ -1,0 +1,56 @@
+field: adde58c6-7061-4a76-a36c-e154ba0a679b # Achtergrond
+fieldLayouts:
+  d3d7d0b1-9930-45da-bcd3-6bca5f9e086a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 0148cf8b-7aa4-46ba-8165-747b4543e691 # Header
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 97d2528b-ca41-4cbf-8cc3-5430bfe03280 # Footer
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  97d2528b-ca41-4cbf-8cc3-5430bfe03280: # Footer
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldFooter
+    instructions: ''
+    name: Footer
+    searchable: false
+    settings:
+      palette: ''
+      useConfigFile: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+  0148cf8b-7aa4-46ba-8165-747b4543e691: # Header
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldHeader
+    instructions: ''
+    name: Header
+    searchable: false
+    settings:
+      palette: ''
+      useConfigFile: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+handle: background
+name: Achtergrond
+sortOrder: 1

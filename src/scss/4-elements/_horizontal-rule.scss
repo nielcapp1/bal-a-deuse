@@ -1,0 +1,8 @@
+/* HR */
+hr {
+    margin-top: u($hr-spacing--t);
+    margin-bottom: u($hr-spacing--b);
+    color: $hr-color-border;
+    border: 0;
+    border-bottom: px($hr-height) solid;
+}

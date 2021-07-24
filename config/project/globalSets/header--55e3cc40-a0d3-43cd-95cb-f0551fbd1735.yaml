@@ -1,0 +1,19 @@
+fieldLayouts:
+  9f100b62-7132-4f8b-9b06-ce9daba3c4a8:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: abec68ee-c33d-4a63-ad93-ced536cf9969 # Navigatie
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhoud
+        sortOrder: 1
+handle: header
+name: Header
+sortOrder: 3

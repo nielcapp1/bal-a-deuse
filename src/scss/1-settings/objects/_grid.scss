@@ -1,0 +1,36 @@
+/* Objects: Grid */
+
+// Namespace
+$grid-namespace:                   $namespace !default;
+
+// Legacy
+$grid-legacy:                      true !default;
+
+// Columns
+$grid-columns:                     12 !default;
+
+// Gutter
+$grid-gutter:                      $spacing-unit !default;
+$grid-xs-gutter:                   $spacing-unit--xs !default;
+$grid-sm-gutter:                   $spacing-unit--sm !default;
+$grid-md-gutter:                   $grid-gutter !default;
+$grid-lg-gutter:                   $spacing-unit--lg !default;
+$grid-xl-gutter:                   $spacing-unit--xl !default;
+
+// Map
+$grid-gutters: (
+    xs: $grid-xs-gutter,
+    sm: $grid-sm-gutter,
+    md: $grid-md-gutter,
+    lg: $grid-lg-gutter,
+    xl: $grid-xl-gutter
+) !default;
+
+// Breakpoints
+$grid-breakpoints: (
+    xs: $viewport--xs,
+    sm: $viewport--sm,
+    md: $viewport--md,
+    lg: $viewport--lg,
+    xl: $viewport--xl
+) !default;

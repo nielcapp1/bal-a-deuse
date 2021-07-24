@@ -1,0 +1,27 @@
+{% spaceless %}
+    {% set keyword = 'name' %}
+    {% set routeString = null %}
+    {% for route, routeSettings in craft.app.routes.getConfigFileRoutes %}
+        {% if routeSettings[keyword] is defined and routeSettings[keyword] == routeName %}
+            {% set routeString = route %}
+        {% endif %}
+    {% endfor %}
+    {% if routeString and tokens is not empty %}
+        {% set routes = routeString|split('/') %}
+        {% set tokenIndex = 0 %}
+        {% set resultArray = [] %}
+        {% for value in routes %}
+            {% if value matches '/\\<[\\w]+\\>/' %}
+                {% if tokens is iterable %}
+                    {% set value = tokens[tokenIndex] %}
+                    {% set tokenIndex = tokenIndex + 1 %}
+                {% else %}
+                    {% set value = tokens %}
+                {% endif %}
+            {% endif %}
+            {% set resultArray = resultArray|merge([value]) %}
+        {% endfor %}
+        {% set result = resultArray|join('/') %}
+        {{url(result)}}
+    {% endif %}
+{% endspaceless %}

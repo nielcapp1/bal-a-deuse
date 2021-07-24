@@ -1,0 +1,10 @@
+/* Mixin: Line-height crop */
+@mixin lhCrop($line-height) {
+
+    &::before {
+        @include dimensions(0);
+        content: '';
+        display: block;
+        margin-top: calc((1 - #{$line-height}) * 0.5em);
+    }
+}

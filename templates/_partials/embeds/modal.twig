@@ -1,0 +1,52 @@
+{% import "_partials/macros" as macros %}
+{# Set defaults #}
+{% set defaults = {
+    namespace: "Modal",
+    attr: {
+        class: [
+            'Modal',
+            'js-modal',
+            debug|default(null) ? 'is-active'
+        ]|filter(e => e)
+    }
+} %}
+
+{# Merge Attr with Defaults #}
+{% set options = (options ? defaults|merge(options, recursive=true) : defaults)|merge({
+    attr: {
+        'data-id': options.namespace
+    }
+}, recursive=true) %}
+
+<div{{ attr(options.attr) }}>
+    <div class="Modal-inner">
+        <div class="Modal-inner-body">
+            {% block mHeader %}
+                <header class="Modal-header">
+                    {% block mInnerHeader %}
+                        <h2 class="Modal-title">{{ options.title }}</h2>
+                        <button class="Modal-close js-closeModal">&times;</button>
+                    {% endblock %}
+                </header>
+            {% endblock %}
+
+            <div class="Modal-body">
+                <div class="Modal-innerBody">
+                    {% block mBody %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            {% block mFooter %}
+                <footer class="Modal-footer">
+                    {% block mInnerFooter %}
+                        <button class="Button Button--danger">{{ 'general.cancel'|t }}</button>
+                    {% endblock %}
+                </footer>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+{% block afterEnd %}
+{% endblock %}

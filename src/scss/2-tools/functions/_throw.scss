@@ -1,0 +1,9 @@
+/* Functions: Throw */
+@function throw($message) {
+    @if $debug {
+        @error $message;
+    } @else {
+        @warn $message;
+        @return false;
+    }
+}

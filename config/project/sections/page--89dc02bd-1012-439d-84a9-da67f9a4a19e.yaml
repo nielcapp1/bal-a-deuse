@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: page
+name: Pagina
+propagationMethod: all
+siteSettings:
+  2d3ee6ad-e058-4766-bd5e-88e8179245c9:
+    enabledByDefault: true
+    hasUrls: true
+    template: _views/page/types/default.twig
+    uriFormat: '{parent.slug}/{slug}'
+structure:
+  maxLevels: null
+  uid: c7e896c1-bb30-4393-b6aa-0ba03e731f91
+type: structure

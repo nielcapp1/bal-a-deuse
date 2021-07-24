@@ -1,0 +1,9 @@
+/* Mixin: Position */
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $z: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $z;
+}

@@ -1,0 +1,26 @@
+/* Colors: Theme */
+
+// Lay-out
+$primary-color:                     currentColor !default;
+$secondary-color:                   currentColor !default;
+$tertiary-color:                    currentColor !default;
+
+$text-color:                        $black !default;
+$bg-color:                          $white !default;
+$border-color:                      $cc-grey !default;
+$image-color:                       $grey--200 !default;
+
+$header-bg-color:                   $white !default;
+$footer-bg-color:                   $white !default;
+
+// Modifiers
+$theme-modifiers: (
+    "primary": $cyan,
+    "secondary": $grey--600,
+    "success": $green,
+    "info": $blue,
+    "warning": $orange,
+    "danger": $red,
+    "light": $grey--100,
+    "dark": $grey--800
+) !default;

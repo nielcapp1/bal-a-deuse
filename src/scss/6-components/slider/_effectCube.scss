@@ -1,0 +1,53 @@
+/* Slider: cube */
+.Slider--cube {
+    overflow: visible;
+
+    .Slider-item {
+        @include dimensions(100%);
+        backface-visibility: hidden;
+        pointer-events: none;
+        transform-origin: 0 0;
+        visibility: hidden;
+        z-index: 1;
+
+        .Slider-item {
+            pointer-events: none;
+        }
+    }
+
+    &.Slider--rtl .Slider-item {
+        transform-origin: 100% 0;
+    }
+
+    .is-active {
+
+        &,
+        & .is-active {
+            pointer-events: auto;
+        }
+    }
+
+    .is-active,
+    .is-next,
+    .is-prev,
+    .is-next + .Slider-item {
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    .swiper-slide-shadow-top,
+    .swiper-slide-shadow-bottom,
+    .swiper-slide-shadow-left,
+    .swiper-slide-shadow-right {
+        backface-visibility: hidden;
+        z-index: 0;
+    }
+
+    .swiper-cube-shadow {
+        @include dimensions(100%);
+        @include position(absolute, $bottom: 0, $left: 0, $z: 0);
+        background: $black;
+        filter: blur(50px);
+        opacity: 0.6;
+    }
+}

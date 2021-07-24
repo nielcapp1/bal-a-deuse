@@ -1,0 +1,121 @@
+/* Header */
+.Header {
+    background-color: $header-bg-color;
+    padding-top: u($spacing-unit);
+    padding-bottom: u($spacing-unit);
+
+    .Navigation {
+        &-body {
+            background-color: $header-bg-color;
+        }
+    }
+
+    &--white {
+        background-color: $white;
+
+        .Toggle {
+            &-item {
+                background-color: $cc-black;
+            }
+        }
+
+        .Navigation {
+            &-body {
+                background-color: $white;
+                color: $cc-black;
+            }
+        } 
+    }
+
+    &--red {
+        background-color: $cc-red;
+        color: $white;
+
+        .Toggle {
+            &-item {
+                background-color: $white;
+            }
+        }
+
+        .Navigation {
+            &-body {
+                background-color: $cc-red;
+                color: $white;
+            }
+        } 
+    }
+
+    &--blue {
+        background-color: $cc-blue;
+        color: $white;
+
+        .Toggle {
+            &-item {
+                background-color: $white;
+            }
+        }
+
+        .Navigation {
+            &-body {
+                background-color: $cc-blue;
+                color: $white;
+            }
+        } 
+    }
+
+    &--yellow {
+        background-color: $cc-yellow;
+
+        .Toggle {
+            &-item {
+                background-color: $white;
+            }
+        }
+
+        .Navigation {
+            &-body {
+                background-color: $cc-yellow;
+                color: $cc-black;
+            }
+        } 
+    }
+
+    &--black {
+        background-color: $cc-black;
+        color: $white;
+
+        .Toggle {
+            &-item {
+                background-color: $white;
+            }
+        }
+
+        .Navigation {
+            &-body {
+                background-color: $cc-black;
+                color: $white;
+            }
+        } 
+    }
+
+    > .Container {
+        display: flex;
+        align-items: center;
+    }
+
+    &--sticky {
+        will-change: transform;
+
+        &.is-pinned {
+            transform: translateY(0%);
+        }
+
+        &.is-unpinned {
+            transform: translateY(-100%);
+        }
+
+        &.is-notTop {
+            box-shadow: 0 0 10px 0 rgba($black, 0.25);
+        }
+    }
+}

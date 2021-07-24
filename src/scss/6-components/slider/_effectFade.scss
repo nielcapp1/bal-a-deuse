@@ -1,0 +1,27 @@
+/* Slider: fade */
+.Slider--fade {
+
+    &.Slider--free-mode {
+
+        .Slider-item {
+            transition-timing-function: ease-out;
+        }
+    }
+
+    .Slider-item {
+        pointer-events: none;
+        transition-property: opacity;
+
+        .Slider-item {
+            pointer-events: none;
+        }
+    }
+
+    .is-active {
+
+        &,
+        & .is-active {
+            pointer-events: auto;
+        }
+    }
+}

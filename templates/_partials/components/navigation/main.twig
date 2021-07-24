@@ -1,0 +1,8 @@
+{% set mainNav = header.fieldNav.all() ?? null %}
+
+{% if mainNav|length %}
+    {% import '_partials/macros' as macros %}
+    {{ macros.nav(mainNav, {
+        namespace: 'main'
+    }) }}
+{% endif %}

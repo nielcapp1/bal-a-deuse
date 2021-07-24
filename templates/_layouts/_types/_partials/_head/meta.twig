@@ -1,0 +1,9 @@
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+{% include '_partials/favicons' ignore missing %}
+
+{% if entry is defined %}
+    {% include "_extra/feeds/#{entry.section.handle}.rss" ignore missing %}
+{% endif %}

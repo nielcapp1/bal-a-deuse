@@ -1,0 +1,22 @@
+/**
+ * Position: Small
+ */
+
+@include mq($from: $viewport--sm, $until: $viewport--md - 1) {
+    .u-sm-posAbsolute {
+        position: absolute !important;
+    }
+
+    .u-sm-posFixed {
+        backface-visibility: hidden;
+        position: fixed !important;
+    }
+
+    .u-sm-posRelative {
+        position: relative !important;
+    }
+
+    .u-sm-posStatic {
+        position: static !important;
+    }
+}

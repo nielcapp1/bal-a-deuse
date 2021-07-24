@@ -1,0 +1,73 @@
+/**
+ * Text: Extra Small
+ */
+
+@include mq($until: $viewport--sm - 1) {
+    // Word breaking
+
+    .u-xs-textBreak {
+        word-wrap: break-word !important;
+    }
+
+
+    // Alignment
+
+    .u-xs-textCenter {
+        text-align: center !important;
+    }
+
+    .u-xs-textLeft {
+        text-align: left !important;
+    }
+
+    .u-xs-textRight {
+        text-align: right !important;
+    }
+
+
+    // Inherit the ancestor's text color.
+
+    .u-xs-textInheritColor {
+        color: inherit !important;
+    }
+
+
+    // Enables font kerning in all browsers.
+    // http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+    // 
+    // 1. Chrome (not Windows), Firefox, IE 10+
+    // 2. Safari 7 and future browsers
+    // 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+
+    .u-xs-textKern {
+        font-feature-settings: "kern" 1; /* 1 */
+        font-kerning: normal; /* 2 */
+        text-rendering: optimizeLegibility; /* 3 */
+    }
+
+
+    // Prevent whitespace wrapping
+
+    .u-xs-textNoWrap {
+        white-space: nowrap !important;
+    }
+
+
+    // Text truncation
+    // 
+    // Prevent text from wrapping onto multiple lines, and truncate with an
+    // ellipsis.
+    // 
+    // 1. Ensure that the node has a maximum width after which truncation can
+    // occur.
+    // 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+    // nodes.
+
+    .u-xs-textTruncate {
+        max-width: 100%; /* 1 */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        word-wrap: normal !important; /* 2 */
+    }
+}

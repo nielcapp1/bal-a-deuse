@@ -1,0 +1,7 @@
+{% for index, option in field.options %}
+    <label class="Form-field Form-field--radio">
+        <input type="radio" name="{{ field.handle }}" value="{{ option.value }}" id="{{ field.idAttribute }}-{{ index }}"{{ option.checked ? " checked" : "" }}>
+        <span class="Form-indicator"></span>
+        <span class="FormField-label">{{- option.label|raw|t -}}</span>
+    </label>
+{% endfor %}

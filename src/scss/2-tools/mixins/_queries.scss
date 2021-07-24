@@ -1,0 +1,76 @@
+/* Mixin: Maps */
+
+// Media query
+@mixin mq($from: false, $until: false, $and: false, $media-type: $mq-type, $mq_debug: null) {
+    $debug: if(is-null($mq_debug), $debug, $mq_debug);
+
+    $_min-width: 0;
+    $_max-width: 0;
+    $_media-query: '';
+
+    $_debugged-min-width: 0;
+    $_debugged-max-width: 0;
+    $_debugged-media-query: '';
+
+    @if $from {
+        @if is-number($from) or is-measure($from) {
+            $_min-width: add-unit((strip-unit($from) / 16), em);
+            $_debugged-min-width: add-unit(strip-unit($from), px);
+        } @else {
+            $_min-width: null;
+            $_debugged-min-width: null;
+        }
+    }
+
+    @if $until {
+        @if is-number($until) or is-measure($until) {
+            $_max-width: add-unit((strip-unit($until) / 16), em);
+            $_debugged-max-width: add-unit(strip-unit($until), px);
+        } @else {
+            $_max-width: null;
+            $_debugged-max-width: null;
+        }
+    }
+
+    @if $_min-width != 0 {
+        $_media-query: '#{$_media-query} and (min-width: #{$_min-width})';
+        $_debugged-media-query: 'min-width: #{$_debugged-min-width} (#{$_min-width})';
+    }
+
+    @if $_max-width != 0 {
+        $_media-query: '#{$_media-query} and (max-width: #{$_max-width})';
+        $_debugged-media-query: 'max-width: #{$_debugged-max-width} (#{$_max-width})';
+    }
+
+    @if $and {
+        $_media-query: '#{$_media-query} and #{$and}';
+        $_debugged-media-query: '#{$and}';
+    }
+
+    $_media-query: unquote(#{$_media-query});
+    $_debugged-media-query: unquote($_debugged-media-query);
+
+    @media #{$media_type + $_media-query} {
+        @content;
+
+        @if is-true($debug) {
+            @at-root body:before {
+                background-color: $amber--100;
+                border-bottom: 1px solid $amber--200;
+                border-right: 1px solid $amber--200;
+                color: scale-color($amber, $black, $saturation: -10%, $lightness: -30%);
+                content: quote(#{$_debugged-media-query});
+                display: block;
+                font: small-caption;
+                padding: u(10);
+                pointer-events: none;
+                text-align: center;
+
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 199;
+            }
+        }
+    }
+}

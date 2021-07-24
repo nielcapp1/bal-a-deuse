@@ -1,0 +1,24 @@
+{% set socialNav = data.fieldSocialMedia.all() ?? null %}
+{% set socialWidth = 0 %}
+
+{% for item in socialNav if socialNav|length %}
+    {% set socialWidth = socialWidth + item.fieldIcon.one().getWidth({ height: 20 }) + 18 %}
+{% endfor %}
+
+{% if socialNav %}
+    <td width="{{ socialWidth }}">
+        <table class="Nav Nav--socialMedia" role="presentation" border="0" cellpadding="0" cellspacing="0">
+            <tr class="Nav-item">
+                {% for item in socialNav %}
+                    {% set icon = item.fieldIcon.one() ?? null %}
+                    <td width="18"></td>
+                    <td class="Nav-icon" width="{{ icon.getWidth({ height: 20 }) }}" align="right">
+                        <a class="Nav-link" href="{{ item.fieldLink }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ baseUrl }}assets/img/email/{{ icon.filename|replace('svg', 'png') }}" width="{{ icon.getWidth({ height: 20 }) }}" height="20" border="0">
+                        </a>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </td>
+{% endif %}

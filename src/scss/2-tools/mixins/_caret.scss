@@ -1,0 +1,78 @@
+/* Mixin: Caret */
+@mixin caret($caret-width, $border-width, $direction, $border-color, $background-color) {
+    $width: $caret-width / 2;
+    @include dimensions($width * 2, $width);
+    position: relative;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+    }
+
+    @if $direction == top {
+        &:before {
+            top: 0;
+            left: 0;
+            border-bottom: u($width) solid $border-color;
+            border-left: u($width) solid transparent;
+            border-right: u($width) solid transparent;
+        }
+
+        &:after {
+            left: u($border-width);
+            top: u($border-width);
+            border-bottom: u($width - $border-width) solid $background-color;
+            border-left: u($width - $border-width) solid transparent;
+            border-right: u($width - $border-width) solid transparent;
+        }
+    } @else if $direction == right {
+        &:before {
+            top: 0;
+            left: 0;
+            border-left: u($width) solid $border-color;
+            border-top: u($width) solid transparent;
+            border-bottom: u($width) solid transparent;
+        }
+
+        &:after {
+            left: 0;
+            top: u($border-width);
+            border-left: u($width - $border-width) solid $background-color;
+            border-top: u($width - $border-width) solid transparent;
+            border-bottom: u($width - $border-width) solid transparent;
+        }
+    } @else if $direction == bottom {
+        &:before {
+            top: 0;
+            left: 0;
+            border-top: u($width) solid $border-color;
+            border-left: u($width) solid transparent;
+            border-right: u($width) solid transparent;
+        }
+
+        &:after {
+            left: u($border-width);
+            top: 0;
+            border-top: u($width - $border-width) solid $background-color;
+            border-left: u($width - $border-width) solid transparent;
+            border-right: u($width - $border-width) solid transparent;
+        }
+    } @else if $direction == left {
+        &:before {
+            top: 0;
+            left: 0;
+            border-right: u($width) solid $border-color;
+            border-top: u($width) solid transparent;
+            border-bottom: u($width) solid transparent;
+        }
+
+        &:after {
+            left: u($border-width);
+            top: u($border-width);
+            border-right: u($width - $border-width) solid $background-color;
+            border-top: u($width - $border-width) solid transparent;
+            border-bottom: u($width - $border-width) solid transparent;
+        }
+    }
+}

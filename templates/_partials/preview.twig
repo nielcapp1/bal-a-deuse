@@ -1,0 +1,28 @@
+{% if not craft.app.request.isPreview %}
+    {% exit 404 %}
+{% endif %}
+
+{% extends "_layouts/_types/html.twig" %}
+
+{% css %}
+    body {
+        padding: 2rem;
+    }
+{% endcss %}
+
+{% set element = craft.entries({
+    id: craft.app.request.getQueryParam('elementId')
+}).one() %}
+{% if not element %}
+    {% set element = craft.entries({
+        draftId: craft.app.request.getQueryParam('draftId')
+    }).one() %}
+{% endif %}
+
+{% set type = craft.app.request.getQueryParam('type') %}
+
+{% block bodyHtml %}
+    {% include "_partials/blocks/#{type}" with {
+        entry: element
+    } %}
+{% endblock %}

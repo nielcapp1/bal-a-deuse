@@ -1,0 +1,6 @@
+{% set items = entry.fieldBlocks.all()|default(null) %}
+
+{% for item in items %}
+    {% set blockType = item.type|lcfirst %}
+    {% include "_partials/blocks/#{blockType|kebab}.twig" %}
+{% endfor %}

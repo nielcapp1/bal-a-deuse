@@ -1,0 +1,8 @@
+/* Paragraph */
+p {
+    margin-bottom: u($spacing-unit);
+}
+
+.#{$namespace}Lead {
+    font-size: u($font-size * $paragraph-lead-modifier);
+}

@@ -1,0 +1,35 @@
+/* Navigation */
+.Navigation {
+
+    &-toggle {
+        display: block;
+    }
+
+    &-body {
+        display: flex;
+        margin-left: u($spacing-unit * -1);
+
+        > .Nav {
+            padding-left: u($spacing-unit);
+        }
+
+        @include mq($until: $viewport--md - 1) {
+            @include position(fixed, u($structure-header-height), 0, 0, 0, 1);
+            @include transition(#{opacity, visibility});
+            background-color: $header-bg-color;
+            flex-direction: column;
+            padding: u($spacing-unit);
+
+            html:not(.show-nav) & {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+/* Types */
+@import '6-components/navigation/main';
+@import '6-components/navigation/lang';
+@import '6-components/navigation/footer';
+@import '6-components/navigation//social-media';

@@ -1,0 +1,54 @@
+/* FlexEmbed */
+.#{$flexEmbed-namespace}FlexEmbed {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+        width: 100%;
+    }
+}
+
+.#{$flexEmbed-namespace}FlexEmbed-content {
+
+    &,
+    > iframe,
+    > object,
+    > embed,
+    > video {
+        height: 100%;
+        width: 100%;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+img.#{$flexEmbed-namespace}FlexEmbed-content {
+    object-fit: cover;
+}
+
+// Modifiers
+@each $ratio-name, $ratio-value in $flexEmbed-ratios {
+
+    @each $antecedent, $consequent in $ratio-value {
+
+        @if (type-of($antecedent) != number) {
+            @error "`#{$antecedent}` needs to be a number.";
+        }
+
+        @if (type-of($consequent) != number) {
+            @error "`#{$consequent}` needs to be a number.";
+        }
+
+        .FlexEmbed--#{$ratio-name}:before {
+            padding-bottom: ($consequent/$antecedent) * 100%;
+        }
+    }
+}

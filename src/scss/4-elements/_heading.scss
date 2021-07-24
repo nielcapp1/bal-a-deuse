@@ -1,0 +1,62 @@
+/* Heading */
+h1, .#{$namespace}Alfa,
+h2, .#{$namespace}Bravo,
+h3, .#{$namespace}Charlie,
+h4, .#{$namespace}Delta,
+h5, .#{$namespace}Echo,
+h6, .#{$namespace}Foxtrot {
+
+    font-family: $heading-font-stack;
+
+    small {
+        font-weight: normal;
+    }
+}
+
+h1, .#{$namespace}Alfa {
+    @include font-size($heading-size-1, $heading-spacing-1);
+}
+
+h2, .#{$namespace}Bravo {
+    @include font-size($heading-size-2, $heading-spacing-2);
+}
+
+h3, .#{$namespace}Charlie {
+    @include font-size($heading-size-3, $heading-spacing-3);
+}
+
+h4, .#{$namespace}Delta {
+    @include font-size($heading-size-4, $heading-spacing-4);
+}
+
+h5, .#{$namespace}Echo {
+    @include font-size($heading-size-5, $heading-spacing-5);
+}
+
+h6, .#{$namespace}Foxtrot {
+    @include font-size($heading-size-6, $heading-spacing-6);
+}
+
+
+// A series of classes for setting massive type; for use in heroes, mastheads,
+// promos, etc.
+
+.#{$namespace}Giga {
+    @include font-size($heading-size-giga, $heading-spacing-giga);
+}
+
+.#{$namespace}Mega {
+    @include font-size($heading-size-mega, $heading-spacing-mega);
+}
+
+.#{$namespace}Kilo {
+    @include font-size($heading-size-kilo, $heading-spacing-kilo);
+}
+
+.#{$namespace}Milli {
+    @include font-size($heading-size-milli, $heading-spacing-milli);
+}
+
+.#{$namespace}Micro {
+    @include font-size($heading-size-micro, $heading-spacing-micro);
+}

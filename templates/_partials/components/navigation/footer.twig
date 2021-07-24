@@ -1,0 +1,9 @@
+{% set footerNav = footer.fieldNav.all() ?? null %}
+
+{% if footerNav|length %}
+    {% import '_partials/macros' as macros %}
+    {{ macros.nav(footerNav, {
+        namespace: 'footer',
+        prefix: "&copy; #{now|date('Y')} #{systemName}",
+    }) }}
+{% endif %}

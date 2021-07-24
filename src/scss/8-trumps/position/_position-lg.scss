@@ -1,0 +1,22 @@
+/**
+ * Position: Large
+ */
+
+@include mq($from: $viewport--lg) {
+    .u-lg-posAbsolute {
+        position: absolute !important;
+    }
+
+    .u-lg-posFixed {
+        backface-visibility: hidden;
+        position: fixed !important;
+    }
+
+    .u-lg-posRelative {
+        position: relative !important;
+    }
+
+    .u-lg-posStatic {
+        position: static !important;
+    }
+}

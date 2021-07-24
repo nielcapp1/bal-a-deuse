@@ -1,0 +1,31 @@
+/* Object: Close */
+.Close {
+    @include font-size($close-font-size);
+    font-weight: 700;
+    line-height: 1;
+    color: $close-color;
+    text-shadow: $close-text-shadow;
+    opacity: .5;
+
+    &:hover {
+        color: $close-color;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+        opacity: .75;
+    }
+
+    &:disabled,
+    &.is-disabled {
+        pointer-events: none;
+    }
+}
+
+button.Close {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}

@@ -1,0 +1,11 @@
+/* Elements: HR */
+
+// Height
+$hr-height:                   1 !default;
+
+// Spacing
+$hr-spacing--t:               $spacing-unit !default;
+$hr-spacing--b:               $hr-spacing--t - $hr-height !default;
+
+// Color
+$hr-color-border:             $grey--400 !default;

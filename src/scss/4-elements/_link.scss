@@ -1,0 +1,13 @@
+/* Link */
+a {
+    @include transition(#{background-color, color});
+    color: $link-color;
+    text-decoration: $link-text-decoration;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $link-color--hover;
+        text-decoration: $link-text-decoration--hover;
+    }
+}

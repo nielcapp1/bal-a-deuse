@@ -1,0 +1,106 @@
+/* Form */
+
+// Item
+.#{$form-namespace}Form-item:not(.#{$form-namespace}Form-item--action) {
+    margin-bottom: u($form-item-spacing);
+}
+
+// Label
+.#{$form-namespace}Form-label {
+    display: inline-block;
+    margin-bottom: u($form-label-spacing--b);
+
+    // Style label if it's a optional item
+    .#{$form-namespace}Form-item:not(.is-required) &::after {
+        content: ' - Optional';
+        margin-left: u($spacing-unit--xs);
+
+        html[lang^="nl"] & {
+            content: ' - Optioneel';
+        }
+
+        html[lang^="fr"] & {
+            content: ' - Facultatif';
+        }
+    }
+
+    // Error
+    .#{$form-namespace}Form-item.is-error & {
+        color: $form-error-color;
+    }
+
+    // Success
+    .#{$form-namespace}Form-item.is-success & {
+        color: $form-success-color;
+    }
+}
+
+// Help & Validation
+.#{$form-namespace}Form-help {
+    margin-top: u($spacing-unit--xs);
+    color: $form-help-color;
+    font-size: u($form-help-font-size);
+
+    &:first-child {
+        margin-top: 0;
+        margin-bottom: u($spacing-unit--sm);
+    }
+
+    & :last-child {
+        margin-bottom: 0;
+    }
+
+    & + & {
+        margin-top: u($spacing-unit--sm);
+        padding-top: u($spacing-unit--sm);
+        border-top: 1px solid $form-divider-color;
+    }
+}
+
+.#{$form-namespace}Form-help--validation {
+
+    // Error
+    .#{$form-namespace}Form-item.is-error & {
+        color: $form-error-color;
+    }
+
+    // Success
+    .#{$form-namespace}Form-item.is-success & {
+        color: $form-success-color;
+    }
+}
+
+// Controls
+.#{$form-namespace}Form-controls {
+    position: relative;
+}
+
+// Horizontal
+@include mq($from: $viewport--sm) {
+    .#{$form-namespace}Form--horizontal {
+
+        .#{$form-namespace}Form-item {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+        }
+
+        // Label
+        .#{$form-namespace}Form-label {
+            margin-top: u($form-label-spacing--t);
+            margin-bottom: 0;
+            padding-right: u($spacing-unit);
+            width: percentage($form-label-width);
+        }
+
+        // Controls
+        .#{$form-namespace}Form-controls {
+            width: percentage($form-controls-width);
+        }
+
+        // Actions
+        .#{$form-namespace}Form-item--action {
+            padding-left: percentage($form-label-width);
+        }
+    }
+}

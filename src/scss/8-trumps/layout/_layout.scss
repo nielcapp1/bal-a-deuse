@@ -1,0 +1,39 @@
+/**
+ * Lay-out
+ */
+
+.u-cf::before,
+.u-cf::after {
+    content: " ";
+    display: table;
+}
+
+.u-cf::after {
+    clear: both;
+}
+
+
+// New block formatting context
+
+.u-nbfc {
+    overflow: hidden !important;
+}
+
+
+// New block formatting context (alternative)
+
+.u-nbfcAlt {
+    display: table-cell !important; /* 1 */
+    width: 10000px !important; /* 2 */
+}
+
+
+// Floats
+
+.u-floatLeft {
+    float: left !important;
+}
+
+.u-floatRight {
+    float: right !important;
+}

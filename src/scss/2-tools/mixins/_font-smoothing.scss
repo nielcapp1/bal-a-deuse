@@ -1,0 +1,12 @@
+/* Mixin: Font-smoothing */
+@mixin font-smoothing($boolean) {
+    @if not is-null($boolean) {
+        @if is-true($boolean) {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        } @else {
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
+        }
+    }
+}

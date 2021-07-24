@@ -1,0 +1,28 @@
+/* Alert */
+.#{$alert-namespace}Alert {
+    border: px($alert-border-width) solid;
+    border-radius: if($alert-border-radius > 0, px($alert-border-radius), null);
+    margin-bottom: u($spacing-unit);
+    padding: u($alert-padding-t, $alert-padding-r, $alert-padding-b, $alert-padding-l);
+    position: relative;
+
+    &.is-dismissible {
+        padding-right: u(double($alert-padding-r) + $close-font-size);
+
+        .Close {
+            @include position(absolute, $top: 0, $right: 0);
+            color: inherit;
+            padding: u($alert-padding-t, $alert-padding-r, $alert-padding-b, $alert-padding-l);
+        }
+    }
+
+    p,
+    ul {
+        margin-bottom: 0;
+
+        + p,
+        + ul {
+            margin-top: u($spacing-unit);
+        }
+    }
+}

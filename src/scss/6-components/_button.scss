@@ -1,0 +1,103 @@
+/* Button */
+
+.Button {
+
+    // Modifiers
+    @each $modifier, $color in $theme-modifiers {
+        $button-color: colorInvert($color);
+        $button-background--active: darken($color, 10%);
+        $button-background--hover: darken($color, 7.5%);
+        $button-border--active: darken($color, 12.5%);
+        $button-border--hover: darken($color, 10%);
+        $button-color--active: colorInvert($button-background--active);
+        $button-color--hover: colorInvert($button-background--hover);
+
+        &--#{$modifier} {
+            background-color: $color;
+            border-color: $color;
+            color: $button-color;
+
+            &:active,
+            &.is-active {
+                background-color: $button-background--active;
+                border-color: $button-border--active;
+                color: $button-color--active;
+            }
+
+            &:focus,
+            &.is-focus {
+                background-color: $color;
+                border-color: $color;
+                box-shadow: 0 0 0 $button-focus-width rgba(mix($button-color, $color, 15%), .5);
+                color: $button-color;
+            }
+
+            &:hover,
+            &.is-hover {
+                background-color: $button-background--hover;
+                border-color: $button-border--hover;
+                color: $button-color--hover;
+            }
+
+            &.Button--outline {
+                background-color: transparent;
+                color: $color;
+
+                &:active,
+                &:hover,
+                &.is-active,
+                &.is-hover {
+                    background-color: $color;
+                    border-color: $color;
+                    color: $button-color;
+                }
+            }
+
+            &:disabled,
+            &.is-disabled {
+                background-color: $color;
+                border-color: $color;
+                color: $button-color;
+            }
+        }
+    }
+
+    // Link
+    &--link {
+        color: $link-color;
+        font-weight: inherit;
+        text-decoration: $link-text-decoration;
+
+        &:hover,
+        &.is-focus {
+            color: $link-color--hover;
+            text-decoration: $link-text-decoration--hover;
+        }
+
+        &:focus,
+        &.is-focus {
+            box-shadow: none;
+            text-decoration: $link-text-decoration--hover;
+        }
+    }
+
+    // Sizes
+    &--large {
+        @include font-size($font-size * 1.25);
+        padding: em($button-padding--t / 0.75, $button-padding--r / 0.75, $button-padding--b / 0.75, $button-padding--l / 0.75);
+    }
+
+    &--small {
+        @include font-size($font-size * 0.875);
+        padding: em($button-padding--t * 0.75, $button-padding--r * 0.75, $button-padding--b * 0.75, $button-padding--l * 0.75);
+    }
+
+    &--full {
+        display: block;
+        width: 100%;
+
+        & + & {
+            margin-top: u($spacing-unit--sm);
+        }
+    }
+}

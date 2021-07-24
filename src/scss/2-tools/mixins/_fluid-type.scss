@@ -1,0 +1,24 @@
+/* Mixin: Font-responsive */
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+
+    & {
+
+        @include mq($until: $min-vw - 1) {
+            @each $property in $properties {
+                #{$property}: u($min-value);
+            }
+        }
+
+        @include mq($from: $min-vw, $until: $max-vw - 1) {
+            @each $property in $properties {
+                #{$property}: calc(#{u($min-value)} + #{strip-unit($max-value - $min-value)} * ((100vw - #{u($min-vw)}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+        }
+
+        @include mq($from: $max-vw) {
+            @each $property in $properties {
+                #{$property}: u($max-value);
+            }
+        }
+    }
+}

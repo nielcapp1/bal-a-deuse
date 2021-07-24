@@ -1,0 +1,56 @@
+/* Mixin: ParentNthStatus */
+@mixin parent-nth-status($index, $status, $place: suffix) {
+    $func-name: parent-nth-status;
+    $new-selectors: ();
+    $selectors: &;
+
+    $status: unquote($status);
+    $place: unquote($place);
+
+    @if not $selectors {
+        @error "#{$func-name} should not at root!";
+    }
+
+    @if not $status or $status=="" {
+        @error "#{$func-name} parameter $status error";
+    }
+
+    @each $selector in $selectors {
+        $len: length($selector);
+        $index: if($index < 0, $len + $index + 1, $index);
+        $result: ();
+
+        @for $i from 1 through $len {
+            $item: nth($selector, $i);
+
+            @if $i==$index {
+                @if $place==suffix {
+                    $result: $item + $status;
+                }
+
+                @else if $place==prefix {
+                    $result: $status + $item;
+                }
+
+                @else if $place==prepend {
+                    $result: append($status, $item);
+                }
+
+                @else if $place==append {
+                    $result: append($item, $status);
+                }
+            }
+
+            @else {
+                $result: append($result, $item);
+            }
+
+        }
+
+        $new-selectors: append($new-selectors, $result, comma);
+    }
+
+    @at-root #{$new-selectors} {
+        @content;
+    }
+}

@@ -1,0 +1,46 @@
+/* Object: Button */
+.#{$button-namespace}Button {
+    @include transition($button-transition, 150ms, ease-in-out);
+    -webkit-appearance: none; // Correct the inability to style clickable types in iOS and Safari.
+    background-color: transparent;
+    border-radius: if($button-border-radius > 0, px($button-border-radius), 0);
+    border: px($button-border-width) solid transparent;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $button-font-stack;
+    font-size: if($button-font-size == $font-size, null, u($button-font-size));
+    font-weight: $button-font-weight;
+    line-height: $button-line-height;
+    padding: em($button-padding--t, $button-padding--r, $button-padding--b, $button-padding--l);
+    text-align: $button-text-align;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+
+    // Remove excess padding and border in Firefox 4+
+    &::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+    }
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    // States
+    &:focus,
+    &.is-focus {
+        outline: 0;
+        box-shadow: $button-focus-shadow;
+    }
+
+    &:disabled,
+    &.is-disabled {
+        box-shadow: none;
+        cursor: default;
+        opacity: strip-unit($button-disabled-opacity / 100);
+        pointer-events: none;
+    }
+}

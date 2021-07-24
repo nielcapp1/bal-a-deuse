@@ -1,0 +1,32 @@
+{% extends "_layouts/_types/html.twig" %}
+
+{% block headMeta %}
+{% endblock headMeta %}
+
+{% block headLinks %}
+{% endblock headLinks %}
+
+{% block headJs %}
+{% endblock headJs %}
+
+{% block headCss %}
+    {% include "_inline/_css/site-fonts.css" %}
+    
+{% endblock headCss %}
+
+{% block bodyHtml %}
+
+    <div class="Wrapper">
+        {% include "_layouts/_partials/header.twig" %}
+        <div class="Main">
+            <main class="Main-content">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+        {% include "_layouts/_partials/footer.twig" %}
+    </div>    
+{% endblock bodyHtml %}
+
+{% block bodyJs %}
+{% endblock bodyJs %}

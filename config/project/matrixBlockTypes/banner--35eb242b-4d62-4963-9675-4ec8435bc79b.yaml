@@ -1,0 +1,231 @@
+field: 19f2e599-5908-4b11-a440-48375ecb0914 # Bouwblokken
+fieldLayouts:
+  6ad9aece-0633-4bd4-89b2-1fd0222d9832:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2cf6c42a-40c9-4829-b965-cb7f47fedf44 # Afbeelding
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f39f4361-87f1-44ea-8714-060af3b2e35c # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c77e505c-c9ed-42af-8016-7e452c217c88 # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 43c9d97f-9a5d-4d77-9a49-501f8a725dc0 # Overlay
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 32aebc6c-557d-444c-b6e1-d162de6c0c34 # Decoratie
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2cf6c42a-40c9-4829-b965-cb7f47fedf44: # Afbeelding
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldImage
+    instructions: ''
+    name: Afbeelding
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: Afbeelding
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  32aebc6c-557d-444c-b6e1-d162de6c0c34: # Decoratie
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: fieldDecoration
+    instructions: ''
+    name: Decoratie
+    searchable: true
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  43c9d97f-9a5d-4d77-9a49-501f8a725dc0: # Overlay
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldOverlay
+    instructions: ''
+    name: Overlay
+    searchable: true
+    settings:
+      options:
+        __assoc__:
+          -
+            - 4
+            -
+              __assoc__:
+                -
+                  - label
+                  - transparent
+                -
+                  - color
+                  - '#fff'
+                -
+                  - default
+                  - '1'
+          -
+            - 0
+            -
+              __assoc__:
+                -
+                  - label
+                  - black
+                -
+                  - color
+                  - '#2B2828'
+                -
+                  - default
+                  - ''
+          -
+            - 1
+            -
+              __assoc__:
+                -
+                  - label
+                  - red
+                -
+                  - color
+                  - '#FF004F'
+                -
+                  - default
+                  - ''
+          -
+            - 2
+            -
+              __assoc__:
+                -
+                  - label
+                  - blue
+                -
+                  - color
+                  - '#2934FF'
+                -
+                  - default
+                  - ''
+          -
+            - 3
+            -
+              __assoc__:
+                -
+                  - label
+                  - yellow
+                -
+                  - color
+                  - '#FDC119'
+                -
+                  - default
+                  - ''
+      palette: ''
+      useConfigFile: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+  c77e505c-c9ed-42af-8016-7e452c217c88: # Buttons
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldButtons
+    instructions: ''
+    name: Buttons
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 6eeb7b3c-2281-487b-9edb-741c35c8082f # Button
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_5_fieldbuttons}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: Button
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  f39f4361-87f1-44ea-8714-060af3b2e35c: # Titel
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldTitle
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: banner
+name: Banner
+sortOrder: 4

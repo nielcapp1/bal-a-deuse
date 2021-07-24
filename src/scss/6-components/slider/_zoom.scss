@@ -1,0 +1,20 @@
+/* Slider: zoom */
+.Slider--zoom {
+    @include dimensions(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    > img,
+    > svg,
+    > canvas {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .is-zoomed {
+        cursor: move;
+    }
+}

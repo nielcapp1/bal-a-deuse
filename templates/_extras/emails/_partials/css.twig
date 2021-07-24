@@ -1,0 +1,482 @@
+{% set color = {
+    grey: '#939394',
+    greyLight: '#fafafa',
+    greyDark: '#313131',
+    white: '#ffffff',
+    black: '#000000',
+    border: '#dededd'
+} %}
+
+<style>
+    /* GLOBAL RESETS */
+    img {
+        text-decoration: none;
+        outline: 0;
+        border: none;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%;
+    }
+
+    body {
+        background-color: {{ color.greyLight }};
+        color: {{ color.grey }};
+        font-family: Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        line-height: 1.75;
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    table {
+        border-collapse: separate;
+        mso-table-lspace: 0;
+        mso-table-rspace: 0;
+        width: 100%;
+    }
+
+    table td {
+        color: {{ color.grey }};
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        vertical-align: top;
+    }
+
+    /* BODY & CONTAINER */
+    .Body {
+        background-color: {{ color.greyLight }};
+        width: 100%;
+    }
+
+    /* Set a max-width, and make it display as block so it will automatically
+    stretch to that width, but will also shrink down on a phone or something */
+    .Container {
+        display: block;
+        margin: 0 auto !important;
+        /* makes it centered */
+        max-width: 600px;
+        padding: 30px 10px !important;
+        width: 600px;
+    }
+
+    /* This should also be a block element, so that it will fill
+    100% of the .container */
+    .Content {
+        box-sizing: border-box;
+        display: block;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 30px 10px;
+    }
+
+    /* HEADER, FOOTER, MAIN */
+    .Main {
+        background: {{ color.white }};
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    .Wrapper {
+        box-sizing: border-box;
+        padding: 40px;
+    }
+
+    .Content-block {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .Header {
+        width: 100%;
+    }
+
+    .Header,
+    .Header table,
+    .Header td {
+        background: {{ color.black }};
+    }
+
+    .Header .Content-block {
+        padding: 15px !important;
+    }
+
+    .Header td,
+    .Header p,
+    .Header span,
+    .Header a {
+        color: {{ color.white }};
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .Footer {
+        background-color: {{ color.white }};
+        clear: both;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .Footer td,
+    .Footer p,
+    .Footer span,
+    .Footer a {
+        color: {{ color.greyDark }};
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .Footer a {
+        text-decoration: none;
+    }
+
+    .Footer a,
+    .Footer img {
+        display: block;
+    }
+
+    .Footer-bottom {
+        margin-top: 40px;
+    }
+
+    .Footer-bottom td {
+        vertical-align: middle;
+    }
+
+    .Footer-bottom td:last-child {
+        text-align: right;
+    }
+
+    .Nav--contact {
+        table-layout: fixed;
+    }
+
+    .Nav--socialMedia {
+        table-layout: fixed;
+        width: auto;
+    }
+
+    .Nav-item td {
+        vertical-align: middle;
+    }
+
+    .Nav--contact .Nav-icon {
+        width: 52px;
+    }
+
+    .Nav-icon img {
+        display: block;
+    }
+
+    .Separator td {
+        height: 10px;
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+    /* TYPOGRAPHY */
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    h1 {
+        color: {{ color.black }};
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    h2 {
+        color: {{ color.black }};
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        margin-bottom: 0 0 10px 0;
+        text-transform: uppercase;
+    }
+
+    p,
+    ul,
+    ol {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        margin: 0 0 15px;
+    }
+
+    p li,
+    ul li,
+    ol li {
+        list-style-position: inside;
+        margin-left: 5px;
+    }
+
+    p:last-child,
+    ul:last-child,
+    ol:last-child,
+    li:last-child {
+        margin: 0;
+    }
+
+    a {
+        color: {{ color.black }};
+        text-decoration: underline;
+    }
+
+    /* HEADING */
+    .Heading {
+        margin-bottom: 10px;
+    }
+
+    .Heading h1 {
+        margin-bottom: 0;
+    }
+
+    .Heading img {
+        display: block;
+    }
+
+    .Heading td {
+        vertical-align: middle;
+    }
+
+    /* CART */
+    .Cart {
+        margin-top: 40px;
+    }
+
+    .Cart-items {
+        font-weight: 100;
+    }
+
+    .Cart-items strong {
+        font-weight: 400;
+    }
+
+    .Cart-items td {
+        border-top: 1px solid {{ color.border }};
+        padding: 20px 0 20px 0;
+    }
+
+    .Separator--cart td {
+        padding: 15px 0 15px 0;
+    }
+
+    .Cart-amount,
+    .Cart-amount td {
+        padding: 0;
+        height: 26px;
+        width: 26px;
+    }
+
+    .Cart-amount td {
+        background-color: {{ color.black }};
+        border-radius: 100%;
+        color: {{ color.white }};
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* BUTTONS */
+    /* .Button {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .Button > tbody > tr > td {
+        padding-bottom: 15px;
+    }
+    .Button table {
+        width: auto;
+    }
+    .Button table td {
+        background-color: #ffffff;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .Button a {
+        background-color: #ffffff;
+        border: solid 1px #3498db;
+        border-radius: 5px;
+        box-sizing: border-box;
+        color: #3498db;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+        padding: 12px 25px;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+
+    .Button--primary table td {
+        background-color: #3498db;
+    }
+
+    .Button--primary a {
+        background-color: #3498db;
+        border-color: #3498db;
+        color: #ffffff;
+    } */
+
+    /* OTHER STYLES THAT MIGHT BE USEFUL */
+    .last {
+        margin-bottom: 0;
+    }
+
+    .first {
+        margin-top: 0;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+
+    .align-right {
+        text-align: right;
+    }
+
+    .align-left {
+        text-align: left;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .mt0 {
+        margin-top: 0;
+    }
+
+    .mb0 {
+        margin-bottom: 0;
+    }
+
+    .preheader {
+        color: transparent;
+        display: none;
+        height: 0;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+        visibility: hidden;
+        width: 0;
+    }
+
+    .powered-by a {
+        text-decoration: none;
+    }
+
+    hr {
+        border: 0;
+        border-bottom: 1px solid {{ color.greyLight }};
+        margin: 20px 0;
+    }
+
+    /* RESPONSIVE AND MOBILE FRIENDLY STYLES */
+    @media only screen and (max-width: 620px) {
+        table[class=Body] {
+            background: red;
+        }
+        table[class=Body] h1 {
+            font-size: 28px !important;
+            margin-bottom: 10px !important;
+        }
+        table[class=Body] p,
+        table[class=Body] ul,
+        table[class=Body] ol,
+        table[class=Body] td,
+        table[class=Body] span,
+        table[class=Body] a {
+            font-size: 16px !important;
+        }
+
+        table[class=Body] .Cart-amount,
+        table[class=Body] .Cart-amount td {
+            font-size: 12px !important;
+        }
+
+        table[class=Body] .Wrapper,
+        table[class=Body] .Article {
+            padding: 10px !important;
+        }
+        table[class=Body] .Content {
+            padding: 0 !important;
+        }
+        table[class=Body] .Container {
+            padding: 0 !important;
+            width: 100% !important;
+        }
+        table[class=Body] .Main {
+            border-left-width: 0 !important;
+            border-radius: 0 !important;
+            border-right-width: 0 !important;
+        }
+        /* table[class=Body] .Button table {
+            width: 100% !important;
+        }
+        table[class=Body] .Button a {
+            width: 100% !important;
+        } */
+        table[class=Body] .Img-responsive {
+            height: auto !important;
+            max-width: 100% !important;
+            /* width: auto !important; */
+        }
+    }
+
+    /* PRESERVE THESE STYLES IN THE HEAD */
+    @media all {
+        .ExternalClass {
+            width: 100%;
+        }
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+        .apple-link a {
+            color: inherit !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+            text-decoration: none !important;
+        }
+        #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+        /* .Button--primary table td:hover {
+            background-color: #34495e !important;
+        }
+        .Button--primary a:hover {
+            background-color: #34495e !important;
+            border-color: #34495e !important;
+        } */
+    }
+</style>
+
+<!--[if mso]>
+<style type=”text/css”>
+.Fallback {
+font-family: Arial, sans-serif;
+}
+</style>
+<![endif]-->

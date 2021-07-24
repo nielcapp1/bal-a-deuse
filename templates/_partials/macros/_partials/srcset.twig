@@ -1,0 +1,192 @@
+{% import '_partials/macros' as macros %}
+
+{# Set Defaults #}
+{% set defaults = {
+    alt: asset.title ?? false,
+    format: null,
+    height: null,
+    interlace: 'none',
+    lazy: true,
+    mode: 'crop',
+    media: null,
+    namespace: 'Media',
+    position: 'center-center',
+    quality: 80,
+    ratio: null,
+    sizes: [],
+    sources: null,
+    srcSizes: null,
+    width: null
+} %}
+
+{# Merge Attr with Defaults #}
+{% set hasDimensions = options.width|default(null) and options.height|default(null) and not options.ratio|default(null) %}
+{% set options = defaults|merge(options|default([]), recursive=true) %}
+{% set options = {
+    attr: {
+        class: ["#{options.namespace}-object"],
+        data: {
+            ratio: options.ratio ?? false
+        }
+    },
+    ratio: hasDimensions ? ratio(options.width, options.height) : options.ratio
+}|merge(options, recursive=true) %}
+
+{# Set ratio #}
+{% if options.ratio %}
+    {% set aRatio = options.ratio|split(':') %}
+{% endif %}
+
+{# Set dimensions #}
+{% set dimensions = dimensions(asset, {
+    width: options.width,
+    height: options.height,
+    ratio: options.ratio
+}) %}
+
+{# Set settings #}
+{% set settings = {
+    mode: options.mode,
+    position: options.position,
+    width: dimensions.width,
+    height: dimensions.height,
+    quality: options.quality,
+    interlace: options.interlace,
+    format: options.format
+} %}
+
+{% if asset|default(null) %}
+    {% if asset.extension != 'svg' %}
+        {% if not options.ratio %}
+            {% set ratio = ratio(dimensions.width|default(asset.getWidth({ height: dimensions.height })), dimensions.height|default(asset.getHeight({ width: dimensions.width }) )) %}
+            {% set aRatio = ratio|split(':') %}
+        {% endif %}
+
+        {% set srcset = macros.getSrcset(asset, {
+            type: 'w',
+            sizes: options.sizes,
+            settings: settings
+        }) %}
+
+        {# Merge options #}
+        {% set imgAttributes = {
+            alt: options.alt,
+            class: [
+                "#{options.namespace}-image",
+                options.lazy ? "LazyLoad",
+            ]|filter(e => e),
+            data: {
+                srcset: options.lazy ? srcset : false,
+            },
+            sizes: options.srcSizes,
+            srcset: options.lazy ? false : srcset,
+            src: base64Pixel(dimensions.width, dimensions.height),
+            height: dimensions.height|number_format,
+            width: dimensions.width|number_format
+        } %}
+
+        {# Image #}
+        <picture{{ attr(options.attr) }}>
+            {# Sources #}
+            {% if options.sources %}
+                {% for source in options.sources|filter(e => e.media is defined) %}
+                    {% if not source.src|default(null) %}
+                        {% set source = source|merge({ src: asset }) %}
+                    {% endif %}
+                    {% if source.src is iterable %}
+                        {% if source.size is not defined %}
+                            {% set source = source|merge({ sizes: options.sizes }) %}
+                        {% endif %}
+
+                        {% set sourceDimensions = dimensions(source.src, {
+                            width: source.options.width|default(null),
+                            height: source.options.height|default(null),
+                            ratio: source.options.ratio|default(null)
+                        }) %}
+                        {% set sourceSettings = source.options|default(null) ? settings|merge(sourceDimensions) : settings %}
+                        {% set sourceSrcset = macros.getSrcset(source.src, {
+                            type: 'w',
+                            sizes: source.sizes,
+                            settings: sourceSettings
+                        }) %}
+
+                        {% set sourceAttributes = {
+                            data: {
+                                srcset: options.lazy ? sourceSrcset : false,
+                            },
+                            media: source.media,
+                            sizes: options.srcSizes,
+                            srcset: options.lazy ? false : sourceSrcset,
+                        } %}
+
+                        {% if craft.app.images.supportsWebP and source.src.extension != 'gif' %}
+                            {% set sourceSrcsetWebp = macros.getSrcset(source.src, {
+                                type: 'w',
+                                sizes: source.sizes,
+                                settings: sourceSettings,
+                                webp: true
+                            }) %}
+                            {{ tag('source', {
+                                data: {
+                                    srcset: options.lazy ? sourceSrcsetWebp : false
+                                },
+                                sizes: options.srcSizes,
+                                media: source.media,
+                                srcset: options.lazy ? false : sourceSrcsetWebp,
+                                type: "image/webp",
+                            }) }}
+                        {% endif %}
+
+                        {{ tag('source', sourceAttributes) }}
+                    {% else %}
+                        {{ tag('source', {
+                            media: source.media|default(null),
+                            sizes: source.sizes|default(null),
+                            srcset: source.src|default(null),
+                            type: source.type|default(null)
+                        }) }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% if craft.app.images.supportsWebP and asset.extension != 'gif' %}
+                {% set srcsetWebP = macros.getSrcset(asset, {
+                    type: 'w',
+                    sizes: options.sizes,
+                    settings: settings,
+                    webp: true
+                }) %}
+                {{ tag('source', {
+                    data: {
+                        srcset: options.lazy ? srcsetWebP : false,
+                    },
+                    sizes: options.srcSizes,
+                    srcset: options.lazy ? false : srcsetWebP,
+                    media: options.media|default(null),
+                    type: "image/webp",
+                }) }}
+            {% endif %}
+
+            {{ tag('img', imgAttributes) }}
+        </picture>
+    {% else %}
+        {# Image #}
+        <picture{{ attr(options.attr) }}>
+            {{ tag('img', {
+                alt: options.alt,
+                class: [
+                    "#{options.namespace}-image",
+                    options.lazy ? "LazyLoad",
+                ]|filter(e => e),
+                data: {
+                    'src': options.lazy ? asset.url : false,
+                },
+                src: options.lazy ? false : asset.url,
+                height: dimensions.height|number_format,
+                width: dimensions.width|number_format
+            }) }}
+        </picture>
+    {% endif %}
+{% else %}
+    <picture{{ attr(options.attr) }}></picture>
+{% endif %}

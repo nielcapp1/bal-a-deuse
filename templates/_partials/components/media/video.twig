@@ -1,0 +1,20 @@
+{% set properties = {
+    ratio: video.ratio ?? "16by9",
+    defaultSettings: {
+        autoplay: video.autoplay ?? false,
+        controls: video.controls ?? true,
+        loop: video.loop ?? false,
+        muted: video.muted ?? false,
+        poster: video.poster ?? false,
+        preload: video.preload ?? false,
+        playsinline: video.playsinline ?? false,
+        class: "FlexEmbed-content"
+    }
+} %}
+{% set settings = settings is defined ? properties.defaultSettings|merge(settings) : properties.defaultSettings %}
+
+<div class="FlexEmbed{% if properties.ratio %} FlexEmbed--{{ properties.ratio }}{% endif %}">
+    <video{{ attr(settings) }}>
+        <source src="{{ asset.url }}" type="video/{{ asset.extension }}">
+    </video>
+</div>

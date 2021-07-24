@@ -1,0 +1,62 @@
+/* Main */
+.Nav--main {
+
+    @include mq($until: $viewport--md - 1) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-grow: 1;
+    }
+
+    // List
+    .Nav-list {
+        margin-left: u($spacing-unit * -1);
+
+        @include mq($until: $viewport--md - 1) {
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: u(20);
+        }
+    }
+
+    // Item
+    .Nav-item {
+        padding-left: u($spacing-unit);
+
+        @include mq($until: $viewport--md - 1) {
+
+            + .Nav-item {
+                margin-top: u($spacing-unit--sm);
+            }
+
+            .show-nav & {
+                @include transition(#{opacity, transform}, #{300ms, 1s}, #{linear, cubic-bezier(.19,1,.22,1)});
+
+                @for $i from 1 through 10 {
+                    $delay: (0.02s * $i);
+
+                    &:nth-child(#{$i}) {
+                        transition-delay: $delay;
+                    }
+                }
+            }
+
+            html:not(.show-nav) & {
+                opacity: 0;
+                transform: translateY(#{u($spacing-unit)});
+            }
+        }
+    }
+
+    // Link
+    .Nav-link {
+
+        &,
+        &:active,
+        &:focus,
+        &:hover {
+            color: currentColor;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+/* Slider: a11y */
+.Slider {
+
+    .Slider-notification {
+        @include position(absolute, $top: 0, $left: 0, $z: -1000);
+        pointer-events: none;
+        opacity: 0;
+    }
+}

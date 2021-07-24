@@ -1,0 +1,76 @@
+{% extends '_layouts/site' %}
+{% import '_partials/macros' as macros %}
+
+{% set contact = {
+    title: systemName ?? null,
+    address: data.fieldAddress ?? null,
+    phone: data.fieldPhone ?? null,
+    email: craft.app.systemSettings.emailSettings.fromEmail,
+    form: entry.fieldForm ?? null
+} %}
+
+{% block _inline_css %}
+    <style>
+        {{ source ("_page/_partials/_#{entry.type}_critical.min.css", ignore_missing = true) }}
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="Container">
+        <h1>{{ entry.title }}</h1>
+
+        {% if contact|length %}
+            <h2>{{ contact.title }}</h2>
+            <p><a href="https://www.google.com/maps/search/?api=1&query={{ contact.address.address|url_encode }}" target="_blank" rel="noopener noreferrer">{{ contact.address.parts.address }} {{ contact.address.parts.number }}<br>
+            {{ contact.address.parts.postcode }} {{ contact.address.parts.city }}</a><p>
+            <p><a href="tel:{{ macros.phone(contact.phone.value) }}" target="_blank" rel="noopener noreferrer">{{ contact.phone.value }}</a><br>
+            <a href="mailto:{{ contact.email }}" target="_blank" rel="noopener noreferrer">{{ contact.email }}</a></p>
+        {% endif %}
+
+        {% if contact.form|length %}
+            {{ contact.form.render({
+                class: 'Form'
+            }) }}
+        {% endif %}
+
+        {% if contact.address|length %}
+            <div class="GoogleMaps">
+                <div class="FlexEmbed FlexEmbed--16by9">
+                    <div class="FlexEmbed-content" id="js-googleMaps" data-lat="{{ contact.address.lat }}" data-lng="{{ contact.address.lng }}" data-zoom="{{ contact.address.zoom }}"></div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block _inline_js %}
+    {% if contact.address|length %}
+        <script>
+            var map;
+            var el = document.getElementById('js-googleMaps');
+
+            function initMap() {
+                if (el == null) {
+                    return false;
+                }
+
+                var latLng = {
+                    lat: parseFloat(el.getAttribute('data-lat')),
+                    lng: parseFloat(el.getAttribute('data-lng'))
+                };
+
+                map = new google.maps.Map(el, {
+                    scaleControl: true,
+                    center: latLng,
+                    zoom: parseInt(el.getAttribute('data-zoom')),
+                });
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: latLng
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ craft.simpleMap.getMapToken() }}&amp;callback=initMap"></script>
+    {% endif %}
+{% endblock %}

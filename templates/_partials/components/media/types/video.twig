@@ -1,0 +1,16 @@
+{% set ratios = {
+    "2by1": (100 / 2 * 1),
+    "3by1": (100 / 3 * 1),
+    "3by2": (100 / 3 * 2),
+    "4by3": (100 / 4 * 3),
+    "16by9": (100 / 16 * 9)
+} %}
+{% set ratio = ratios|filter(v => v == embeddedAsset.aspectRatio)|keys|first %}
+
+{% if cookies.marketing is defined and cookies.marketing %}
+    <div class="FlexEmbed{% if ratio %} FlexEmbed--{{ ratio }}{% endif %}">
+        <div class="FlexEmbed-content">
+            {{ embeddedAsset.html }}
+        </div>
+    </div>
+{% endif %}

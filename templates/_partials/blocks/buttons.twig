@@ -1,0 +1,13 @@
+{% import '_partials/macros' as macros %}
+
+<div class="Buttons">
+    {% for button in buttons %}
+        {% set link = button.fieldButton|default(null) %}
+        {% set class = loop.index is odd ? 'Button--primary' : 'Button--primary Button--outline' %}
+        {% if link %}
+            {{ macros.button(link, { 
+                class: 'Button ' ~ class
+            }) }}
+        {% endif %}
+    {% endfor %}
+</div>

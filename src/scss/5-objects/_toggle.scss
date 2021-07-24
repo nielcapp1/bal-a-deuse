@@ -1,0 +1,41 @@
+.Toggle {
+    @include dimensions($toggle-width, $toggle-height);
+    @include position(relative);
+    cursor: pointer;
+    transform: rotate(0deg);
+
+    &-item {
+        @include dimensions(100%, $toggle-border-width);
+        @include position(absolute);
+        @include transition(#{top, transform, opacity}, 250ms, ease-in-out);
+        background-color: currentColor;
+        border-radius: px($toggle-border-radius);
+        display: block;
+        transform: rotate(0deg);
+
+        &:nth-child(1) {
+            top: 0;
+
+            .show-nav & {
+                top: u($toggle-height / 2 - $toggle-border-width / 2);
+                transform: rotate(135deg);
+            }
+        }
+
+        &:nth-child(2) {
+            top: u($toggle-height / 2 - $toggle-border-width / 2);
+
+            .show-nav & {
+                opacity: 0;
+            }
+        }
+        &:nth-child(3) {
+            top: u($toggle-height - $toggle-border-width);
+
+            .show-nav & {
+                top: u($toggle-height / 2 - $toggle-border-width / 2);
+                transform: rotate(-135deg);
+            }
+        }
+    }
+}

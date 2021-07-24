@@ -1,0 +1,12 @@
+{% set media = {
+    src: item.fieldMedia|default(null),
+    position: 'center',
+    width: 520
+} %}
+
+{% for asset in media.src.all() %}
+    {% set embeddedAsset = craft.embeddedAssets.get(asset) %}
+    <div class="Media Media--{{ embeddedAsset.type ?? asset.kind }}{% if media.position %} Media--{{ media.position }}{% endif %}">
+        {% include "_partials/components/media" %}
+    </div>
+{% endfor %}

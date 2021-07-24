@@ -1,0 +1,7 @@
+/* Slider: coverflow */
+.Slider--coverflow {
+
+    .Slider-items {
+        -ms-perspective: 1200px; /* Windows 8 IE 10 fix */
+    }
+}

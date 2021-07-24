@@ -1,0 +1,44 @@
+/* Mixin: Maps */
+
+// Constructor
+@mixin constructor($map, $keys...) {
+    $i: 1;
+    $_length: length($keys);
+
+    @if is-map($map) {
+        @while $_length >= $i {
+            $map: map-get($map, nth($keys, $i)); // Account for nested maps
+            $i: $i + 1;
+        }
+
+        // Loop over `$map` and find properties and values
+        @each $_property, $_value in $map {
+            @if not is-map($_value) { // Account for nested maps
+                #{$_property}: $_value; // Output `property: value;`
+            }
+        }
+    } @else {
+        $_return: throw('`#{$map}` is not a map for `constructor()`');
+    }
+}
+
+// Debug
+@mixin debug-map($map) {
+    @if is-map($map) {
+        @at-root {
+            @debug-map {
+                __toString__: inspect($map);
+                __length__: length($map);
+                __depth__: map-depth($map);
+                __keys__: map-keys($map);
+                __properties__ {
+                    @each $key, $value in $map {
+                        #{'(' + type-of($value) + ') ' + $key}: inspect($value);
+                    }
+                }
+            }
+        }
+    } @else {
+        $_return: throw('`#{$map}` is not a map for `debug-map()`');
+    }
+}

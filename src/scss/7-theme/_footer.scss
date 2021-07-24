@@ -1,0 +1,52 @@
+/* Footer */
+.Footer {
+    background-color: $footer-bg-color;
+
+    &--white {
+        background-color: $white;
+    }
+
+    &--red {
+        background-color: $cc-red;
+        color: $white;
+    }
+
+    &--blue {
+        background-color: $cc-blue;
+        color: $white;
+    }
+
+    &--yellow {
+        background-color: $cc-yellow;
+    }
+
+    &--black {
+        background-color: $cc-black;
+        color: $white;
+    }
+
+    .Copyright {
+        font-weight: 700;
+        font-family: $font-josefin-sans;
+        text-decoration: none;
+        color: $white;;
+    }
+
+    // Top
+    &-top {
+        padding-bottom: u($spacing-unit * 3);
+        padding-top: u($spacing-unit * 3);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // Bottom
+    &-bottom {
+        border-top: 1px solid rgba($black, .1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: u($spacing-unit--sm);
+        padding-bottom: u($spacing-unit--sm);
+    }
+}

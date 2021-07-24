@@ -1,0 +1,7 @@
+/* Mixin: Transition */
+@mixin transition($property, $duration: 200ms, $timing-function: linear, $delay: null) {
+    transition-property: if($property != null, $property, null);
+    transition-duration: if($duration != null, $duration, null);
+    transition-timing-function: if($timing-function != null, $timing-function, null);
+    transition-delay: if($delay != null, $delay, null);
+}

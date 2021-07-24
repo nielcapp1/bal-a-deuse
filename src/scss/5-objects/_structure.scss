@@ -1,0 +1,41 @@
+/* Structure */
+
+// Wrapper
+.#{$structure-namespace}Wrapper {
+    @include grid(100%, auto 1fr auto);
+    grid-template-areas: "header" "main" "footer";
+    min-height: 100%;
+}
+
+// Header
+.#{$structure-namespace}Header {
+    @include position(relative, $z: 3);
+    grid-area: header;
+    height: if($structure-header-height != 'auto', u($structure-header-height), null);
+
+    > .#{$container-namespace}Container {
+        height: 100%;
+    }
+
+    @include mq($from: $viewport--md) {
+        height: if($structure-header-height != 'auto', null, auto);
+    }
+}
+
+// Main
+.#{$structure-namespace}Main {
+    @include position(relative, $z: 2);
+    grid-area: main;
+
+    &-content > .#{$structure-namespace}Container {
+        padding-top: u($structure-header-gutter);
+        padding-bottom: u($structure-footer-gutter);
+    }
+}
+
+// Footer
+.#{$structure-namespace}Footer {
+    @include position(relative, $z: 1);
+    grid-area: footer;
+    height: if($structure-footer-height != 'auto', u($structure-footer-height), null);
+}

@@ -1,0 +1,32 @@
+/* Slider: scrollbar */
+.Slider-scrollbar {
+    background-color: rgba($black, 0.1);
+    border-radius: u(10px);
+    position: relative;
+    -ms-touch-action: none;
+
+    .Slider--horizontal > & {
+        @include dimensions(98%, 5);
+        @include position(absolute, $bottom: 3px, $left: 1%, $z: 50);
+    }
+
+    .Slider--vertical > & {
+        @include dimensions(5, 98%);
+        @include position(absolute, $top: 1%, $right: 3px, $z: 50);
+    }
+
+    &-drag {
+        @include dimensions(100%);
+        @include position(relative, $top: 0, $left: 0);
+        background-color: rgba($black, 0.5);
+        border-radius: u(10px);
+    }
+
+    &-cursor-drag {
+        cursor: move;
+    }
+
+    .is-locked {
+        display: none;
+    }
+}

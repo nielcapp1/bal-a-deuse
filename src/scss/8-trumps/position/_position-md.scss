@@ -1,0 +1,22 @@
+/**
+ * Position: Medium
+ */
+
+@include mq($from: $viewport--md, $until: $viewport--lg - 1) {
+    .u-md-posAbsolute {
+        position: absolute !important;
+    }
+
+    .u-md-posFixed {
+        backface-visibility: hidden;
+        position: fixed !important;
+    }
+
+    .u-md-posRelative {
+        position: relative !important;
+    }
+
+    .u-md-posStatic {
+        position: static !important;
+    }
+}

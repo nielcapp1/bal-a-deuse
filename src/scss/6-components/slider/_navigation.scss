@@ -1,0 +1,33 @@
+/* Slider: navigation */
+.Slider-button {
+    @include dimensions(27, 44);
+    @include position(absolute, $top: 50%, $z: 10);
+    margin-top: u(-22px);
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 27px 44px;
+
+    &.is-disabled {
+        cursor: auto;
+        opacity: 0.35;
+    }
+
+    &.is-locked {
+        display: none;
+    }
+}
+
+.Slider-button--prev,
+.Slider--rtl .Slider-button--next {
+    background-image: svg-url("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='#{$primary-color}'/></svg>");
+    right: auto;
+    left: 10px;
+}
+
+.Slider-button--next,
+.Slider--rtl .Slider-button--prev {
+    background-image: svg-url("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='#{$primary-color}'/></svg>");
+    right: 10px;
+    left: auto;
+}

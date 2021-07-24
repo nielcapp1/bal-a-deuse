@@ -1,0 +1,382 @@
+.Block {
+
+    &--text, &--text-and-media {
+        color: $white;
+        padding-top: u($spacing-unit * 5);
+        padding-bottom: u($spacing-unit * 5);
+
+        &.Block--white {
+            + .Block--white {
+                
+                @include mq($until: $viewport--lg) {
+                    padding-top: 0;
+
+                    &.Block--text-and-media {
+                        margin-top: u(-50);
+                    }
+                }
+            }
+        }
+
+        &.Block--black {
+            + .Block--black {
+                
+                @include mq($until: $viewport--lg) {
+                    padding-top: 0;
+
+                    &.Block--text-and-media {
+                        margin-top: u(-50);
+                    }
+                }
+            }
+        }
+
+        &.Block--blue {
+            + .Block--blue {
+                
+                @include mq($until: $viewport--lg) {
+                    padding-top: 0;
+
+                    &.Block--text-and-media {
+                        margin-top: u(-50);
+                    }
+                }
+            }
+        }
+
+        &.Block--red {
+            + .Block--red {
+                
+                @include mq($until: $viewport--lg) {
+                    padding-top: 0;
+
+                    &.Block--text-and-media {
+                        margin-top: u(-50);
+                    }
+                }
+            }
+        }
+
+        &.Block--yellow {
+            + .Block--yellow {
+                
+                @include mq($until: $viewport--lg) {
+                    padding-top: 0;
+
+                    &.Block--text-and-media {
+                        margin-top: u(-50);
+                    }
+                }
+            }
+        }
+
+        .Button {
+            margin-right: u($spacing-unit--sm);
+            margin-bottom: u($spacing-unit--sm);
+        }
+
+        &.Block {
+
+            &--white {
+                color: $cc-black;
+
+                .Button {
+                    &--primary {
+                        background-color: $cc-black;
+                        color: $white;
+                        border-color: $cc-black;
+
+                        &:active,
+                        &.is-active {
+                            background-color: darken($cc-black, 10%);
+                            border-color: darken($cc-black, 12.5%);
+                            color: colorInvert(darken($cc-black, 10%));
+                        }
+
+                        &:focus,
+                        &.is-focus {
+                            background-color: $cc-black;
+                            border-color: $cc-black;
+                            box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($cc-black), $cc-black, 15%), .5);
+                            color: colorInvert($cc-black);
+                        }
+
+                        &:hover,
+                        &.is-hover {
+                            background-color: darken($cc-black, 7.5%);
+                            border-color: darken($cc-black, 10%);
+                            color: colorInvert(darken($cc-black, 7.5%));
+                        }
+
+                        &.Button--outline {
+                            background-color: transparent;
+                            color: $cc-black;
+
+                            &:active,
+                            &:hover,
+                            &.is-active,
+                            &.is-hover {
+                                background-color: $cc-black;
+                                border-color: $cc-black;
+                                color: colorInvert($cc-black);
+                            }
+                        }                        
+                    }
+                }
+            }
+
+            &--black {
+                background-color: $cc-black;
+
+                .Button {
+                    &--primary {
+                        background-color: $white;
+                        color: $cc-black;
+                        border-color: $white;
+
+                        &:active,
+                        &.is-active {
+                            background-color: darken($white, 10%);
+                            border-color: darken($white, 12.5%);
+                            color: colorInvert(darken($white, 10%));
+                        }
+
+                        &:focus,
+                        &.is-focus {
+                            background-color: $white;
+                            border-color: $white;
+                            box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($white), $white, 15%), .5);
+                            color: colorInvert($white);
+                        }
+
+                        &:hover,
+                        &.is-hover {
+                            background-color: darken($white, 7.5%);
+                            border-color: darken($white, 10%);
+                            color: colorInvert(darken($white, 7.5%));
+                        }
+
+                        &.Button--outline {
+                            background-color: transparent;
+                            color: $white;
+
+                            &:active,
+                            &:hover,
+                            &.is-active,
+                            &.is-hover {
+                                background-color: $white;
+                                border-color: $white;
+                                color: colorInvert($white);
+                            }
+                        }                        
+                    }
+                }
+            }
+
+            &--red {
+                background-color: $cc-red;
+
+                .Button {
+                    &--primary {
+                        background-color: $white;
+                        color: $cc-red;
+                        border-color: $white;
+
+                        &:active,
+                        &.is-active {
+                            background-color: darken($white, 10%);
+                            border-color: darken($white, 12.5%);
+                            color: colorInvert(darken($white, 10%));
+                        }
+
+                        &:focus,
+                        &.is-focus {
+                            background-color: $white;
+                            border-color: $white;
+                            box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($white), $white, 15%), .5);
+                            color: colorInvert($white);
+                        }
+
+                        &:hover,
+                        &.is-hover {
+                            background-color: darken($white, 7.5%);
+                            border-color: darken($white, 10%);
+                            color: colorInvert(darken($white, 7.5%));
+                        }
+
+                        &.Button--outline {
+                            background-color: transparent;
+                            color: $white;
+
+                            &:active,
+                            &:hover,
+                            &.is-active,
+                            &.is-hover {
+                                background-color: $white;
+                                border-color: $white;
+                                color: colorInvert($white);
+                            }
+                        }                        
+                    }
+                }
+            }
+
+            &--blue {
+                background-color: $cc-blue;
+
+                .Button {
+                    &--primary {
+                        background-color: $white;
+                        color: $cc-blue;
+                        border-color: $white;
+
+                        &:active,
+                        &.is-active {
+                            background-color: darken($white, 10%);
+                            border-color: darken($white, 12.5%);
+                            color: colorInvert(darken($white, 10%));
+                        }
+
+                        &:focus,
+                        &.is-focus {
+                            background-color: $white;
+                            border-color: $white;
+                            box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($white), $white, 15%), .5);
+                            color: colorInvert($white);
+                        }
+
+                        &:hover,
+                        &.is-hover {
+                            background-color: darken($white, 7.5%);
+                            border-color: darken($white, 10%);
+                            color: colorInvert(darken($white, 7.5%));
+                        }
+
+                        &.Button--outline {
+                            background-color: transparent;
+                            color: $white;
+
+                            &:active,
+                            &:hover,
+                            &.is-active,
+                            &.is-hover {
+                                background-color: $white;
+                                border-color: $white;
+                                color: colorInvert($white);
+                            }
+                        }                        
+                    }
+                }
+            }
+
+            &--yellow {
+                background-color: $cc-yellow;
+
+                .Button {
+                    &--primary {
+                        background-color: $white;
+                        color: $cc-yellow;
+                        border-color: $white;
+
+                        &:active,
+                        &.is-active {
+                            background-color: darken($white, 10%);
+                            border-color: darken($white, 12.5%);
+                            color: colorInvert(darken($white, 10%));
+                        }
+
+                        &:focus,
+                        &.is-focus {
+                            background-color: $white;
+                            border-color: $white;
+                            box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($white), $white, 15%), .5);
+                            color: colorInvert($white);
+                        }
+
+                        &:hover,
+                        &.is-hover {
+                            background-color: darken($white, 7.5%);
+                            border-color: darken($white, 10%);
+                            color: colorInvert(darken($white, 7.5%));
+                        }
+
+                        &.Button--outline {
+                            background-color: transparent;
+                            color: $white;
+
+                            &:active,
+                            &:hover,
+                            &.is-active,
+                            &.is-hover {
+                                background-color: $white;
+                                border-color: $white;
+                                color: colorInvert($white);
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+
+    &--text-and-media {
+        overflow: hidden;
+
+        .Grid {
+            &.u-flexRowReverse {
+                .Media {
+                    &-object {
+                        @include mq($from: $viewport--lg) {
+                            @include breakout('left');
+                        }
+
+                        @include mq($from: 1681) {    
+                            margin-left: u(-$spacing-unit * 5);      
+                        }           
+                    }
+                }
+            }
+
+            &.u-flexRow {
+                .Media {
+                    &-object {
+                        @include mq($from: $viewport--lg) {
+                            @include breakout('right');
+
+                            @include mq($from: 1681) {    
+                                margin-right: u(-$spacing-unit * 5);         
+                            }        
+                        }
+                    }
+                }
+            }
+        }
+
+        .Media {
+            &-object {
+                height: 100%;
+                min-height: 300px;
+                margin-top: u($spacing-unit--lg);
+
+                @include mq($from: $viewport--lg) {
+                    min-height: auto;
+                    height: calc(100% + 200px);
+                    margin-top: u(-$spacing-unit * 5);
+                }
+
+                &::after {
+                    content: "";
+                    @include position(absolute, 0, 0, 0, 0, 1);
+                    width: 100%;
+                    height: 100%;
+                    mix-blend-mode: color;
+                }
+            }
+
+            &-image {
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
+}

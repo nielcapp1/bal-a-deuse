@@ -1,0 +1,15 @@
+{% import '_partials/macros' as macros %}
+
+
+<{% if link %}a {{ link.getLinkAttributes() }} {% else %}div {% endif %}class="Tile Tile--{{ color }} Tile--{{ type }}">
+    {% if image and type == 'overlay' %}
+        {{ macros.srcset(image, {
+            sizes: [0.5, 1, 2, 3]|map(w => w * 768),
+            width: 1024,
+            ratio: ratio,
+        }) }}
+    {% endif %}
+    {% if title %}
+        <h2 class="{{ font }} u-marginBn">{{ title }}</h2>
+    {% endif %}
+</{% if link %}a{% else %}div{% endif %}>

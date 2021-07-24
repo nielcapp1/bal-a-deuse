@@ -1,0 +1,26 @@
+/* Components: Modal */
+
+// Namespace
+$modal-namespace:                                       $namespace !default;
+
+// Margin
+$modal-margin--t:                                      $structure-responsive-gutter--r !default;
+$modal-margin--r:                                      $structure-responsive-gutter--r !default;
+$modal-margin--b:                                      $modal-margin--t !default;
+$modal-margin--l:                                      $modal-margin--r !default;
+
+// Padding
+$modal-padding--t:                                      $spacing-unit--sm !default;
+$modal-padding--r:                                      $spacing-unit--sm !default;
+$modal-padding--b:                                      $modal-padding--t !default;
+$modal-padding--l:                                      $modal-padding--r !default;
+
+// Border
+$modal-border-width:                                    1 !default;
+$modal-border-radius:                                   0 !default;
+
+// Width
+$modal-width:                                           500 !default;
+
+// Colors & Styles
+$modal-border-color:                                    $border-color;

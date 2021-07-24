@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 8f1c399b-481a-4dda-89ec-def2fcda6155
+handle: fieldBackground
+instructions: ''
+name: Achtergrond
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_fieldbackground}}'
+  maxBlocks: '1'
+  minBlocks: '1'
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

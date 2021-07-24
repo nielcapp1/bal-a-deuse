@@ -1,0 +1,102 @@
+/* Table */
+.#{$table-namespace}Table {
+    background-color: $table-bg-color;
+    border: 1px solid $table-border-color;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+
+    th,
+    td {
+        vertical-align: middle;
+        padding: u($table-padding-t, $table-padding-r, $table-padding-b, $table-padding-l);
+    }
+
+    thead {
+        background-color: $table-header-color;
+        border-bottom: 2px solid $table-border-color;
+    }
+
+    tbody {
+        tr + tr {
+            border-top: 1px solid $table-border-color;
+        }
+    }
+
+    tfoot {
+        background-color: $table-footer-color;
+        border-top: 2px solid $table-border-color;
+    }
+
+    // Responsive
+    @include mq($until: $viewport--md - 1) {
+        &.is-responsive {
+            border-width: 0;
+
+            &,
+            tbody,
+            tfoot,
+            tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody {
+                tr {
+                    border: 1px solid $table-border-color;
+                    border-bottom-width: 0;
+                }
+            }
+
+            tfoot {
+                border: 1px solid $table-border-color;
+                border-top-width: 2px;
+            }
+
+            .Table-cell {
+                display: inline-block;
+                vertical-align: top;
+                width: 100%;
+
+                // Style labels
+                &[data-table-label]::before {
+                    content: attr(data-table-label);
+                    display: block;
+                    margin: u(-$spacing-unit--sm, -$spacing-unit--sm, $spacing-unit--sm);
+                    padding: u($spacing-unit--sm);
+                    background-color: $table-bg-color--accent;
+                    border-top: 1px solid $table-border-color;
+                    border-bottom: 1px solid $table-border-color;
+                }
+            }
+        }
+    }
+}
+
+// Striped
+.#{$table-namespace}Table--striped {
+
+    tbody {
+
+        tr:nth-child(even) {
+            background-color: $table-bg-color--accent;
+        }
+    }
+
+    // Responsive
+    @include mq($until: $viewport--md - 1) {
+        &.is-responsive {
+
+            tbody {
+
+                // Remove background color
+                tr:nth-child(even) {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

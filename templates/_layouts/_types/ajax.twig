@@ -1,0 +1,9 @@
+{% extends "_layouts/variables.twig" %}
+
+{% block htmlPage %}
+    {% minify %}
+        {% block content %}
+            <code>No content block defined.</code>
+        {% endblock content %}
+    {% endminify %}
+{% endblock htmlPage %}

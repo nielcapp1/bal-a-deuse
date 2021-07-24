@@ -1,0 +1,11 @@
+<nav class="Nav Nav--tabs">
+    <ul class="Nav-list">
+        {% for page in form.pages %}
+            <li class="Nav-item">
+                <a class="Nav-link{{ form.currentPage.index == page.index ? " is-active" : " is-disabled" }}" href="javascript:;">
+                    {{ page.label }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

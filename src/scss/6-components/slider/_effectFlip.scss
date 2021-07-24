@@ -1,0 +1,30 @@
+/* Slider: flip */
+.Slider--flip {
+    overflow: visible;
+
+    .Slider-item {
+        backface-visibility: hidden;
+        pointer-events: none;
+        z-index: 1;
+
+        .Slider-item {
+            pointer-events: none;
+        }
+    }
+
+    .is-active {
+
+        &,
+        & .is-active {
+            pointer-events: auto;
+        }
+    }
+
+    .Slider-item--shadow-top,
+    .Slider-item--shadow-bottom,
+    .Slider-item--shadow-left,
+    .Slider-item--shadow-right {
+        backface-visibility: hidden;
+        z-index: 0;
+    }
+}

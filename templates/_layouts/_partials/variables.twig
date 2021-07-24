@@ -1,0 +1,9 @@
+{% spaceless %}
+    {% set baseUrl = "#{alias('@web')}/" %}
+    {% set flashNotice = craft.app.session.getFlash('notice', null, true) %}
+    {% set flashError = craft.app.session.getFlash('error', null, true) %}
+
+    {% block htmlPage %}
+    {% endblock %}
+
+{% endspaceless %}

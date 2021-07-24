@@ -1,0 +1,33 @@
+/* Alert */
+.Alert {
+
+    // Modifiers
+    @each $modifier, $color in $theme-modifiers {
+        $alert-color: color-level($color, 6);
+        $alert-border: color-level($color, -9);
+
+        &--#{$modifier} {
+            color: $alert-color;
+            background-color: color-level($color, -10);
+            border-color: $alert-border;
+
+            hr {
+                border-bottom-color: darken($alert-border, 5%);
+            }
+
+            .Alert-link {
+                color: darken($alert-color, 10%);
+            }
+        }
+    }
+
+    // Title
+    &-title {
+        color: inherit;
+    }
+
+    // Link
+    &-link {
+        font-weight: 700;
+    }
+}

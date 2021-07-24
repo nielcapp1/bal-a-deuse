@@ -1,0 +1,9 @@
+baseUrl: $DEFAULT_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: nl
+name: Bal-à-Deuse
+primary: true
+siteGroup: 01ecc486-f153-40dc-bde9-b40958660179
+sortOrder: 1

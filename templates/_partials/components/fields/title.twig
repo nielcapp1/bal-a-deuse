@@ -1,0 +1,4 @@
+{% set title = item.fieldTitle|default(null) %}
+{% if title|length %}
+    <h2>{{ title }}</h2>
+{% endif %}

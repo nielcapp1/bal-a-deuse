@@ -1,0 +1,27 @@
+{% import '_partials/macros' as macros %}
+{% set defaultSettings = {
+    class: class ?? null,
+    height: height ?? asset.getHeight({ width: 570 }),
+    namespace: namespace ?? 'Media',
+    objectFit: objectFit ?? null,
+    ratio: ratio ?? null,
+    srcSizes: srcSizes ?? '100vw',
+    width: width ?? 570
+} %}
+{% set settings = settings is defined ? defaultSettings|merge(settings) : defaultSettings %}
+{{ macros.srcset(asset, {
+    sizes: [
+        { width: settings.width * 2 },
+        { width: settings.width * 1.5 },
+        { width: settings.width * 1 },
+        { width: settings.width * 0.5 }
+    ],
+    class: settings.class,
+    height: settings.height,
+    lazy: true,
+    namespace: settings.namespace,
+    ratio: settings.ratio,
+    objectFit: settings.objectFit,
+    srcSizes: settings.srcSizes,
+    width: settings.width
+}) }}

@@ -1,0 +1,76 @@
+/* Nav */
+.#{$nav-namespace}Nav {
+
+    // Navigation List
+    &-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 1 auto;
+    }
+
+    &-item {
+        margin: 0;
+    }
+
+    &-link {
+        user-select: none;
+        display: block;
+
+        &,
+        &:active,
+        &:focus,
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    // Navigation Stacked
+    &--stacked {
+
+        .#{$nav-namespace}Nav-list {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+    }
+
+    // Navigation fit
+    &--fit {
+
+        // Apply when stacked modifier is not chained
+        &:not(.#{$nav-namespace}Nav--stacked) {
+
+            .#{$nav-namespace}Nav-item {
+                flex: 1 1 auto;
+            }
+        }
+    }
+
+    // Alignment
+    &--alignCenter {
+        text-align: center;
+
+        // Apply when stacked or fit modifier is not chained
+        &:not(.#{$nav-namespace}Nav--stacked):not(.#{$nav-namespace}Nav--fit) {
+
+            .#{$nav-namespace}Nav-list {
+                justify-content: center;
+            }
+        }
+    }
+
+    &--alignRight {
+        text-align: right;
+
+        // Apply when stacked or fit modifier is not chained
+        &:not(.#{$nav-namespace}Nav--stacked):not(.#{$nav-namespace}Nav--fit) {
+
+            .#{$nav-namespace}Nav-list {
+                justify-content: flex-end;
+            }
+        }
+    }
+}

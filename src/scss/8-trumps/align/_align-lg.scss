@@ -1,0 +1,21 @@
+/**
+ * Align: Large
+ */
+
+@include mq($from: $viewport--lg) {
+    .u-lg-alignBaseline {
+        vertical-align: baseline !important;
+    }
+
+    .u-lg-alignBottom {
+        vertical-align: bottom !important;
+    }
+
+    .u-lg-alignMiddle {
+        vertical-align: middle !important;
+    }
+
+    .u-lg-alignTop {
+        vertical-align: top !important;
+    }
+}

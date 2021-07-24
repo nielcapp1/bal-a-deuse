@@ -1,0 +1,83 @@
+{% inlinecss %}
+{% spaceless %}
+{% set baseUrl = "#{alias('@web')}/" %}
+{% set subject = subject ?? "#{systemName} email" %}
+{% set body = body ?? null %}
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>{{ subject }}</title>
+        {% include "_extras/emails/_partials/css.twig" %}
+    </head>
+    <body class="">
+        {# <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span> #}
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="Body">
+            <tr>
+                <td class="Fallback">&nbsp;</td>
+                <td class="Fallback Container">
+                    <div class="Content">
+                        <!-- START HEADER -->
+                        <div class="Header">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" bgcolor="#c4271a">
+                                <tr>
+                                    <td class="Fallback Content-block">
+                                        <img class="Logo Img-responsive" src="{{ baseUrl }}assets/dist/logo.png" alt="{{ systemName }} logo" width="205" height="56" border="0">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- END HEADER -->
+
+                        <!-- START CENTERED WHITE CONTAINER -->
+                        <table role="presentation" class="Main">
+                            <!-- START MAIN CONTENT AREA -->
+                            <tr>
+                                <td class="Fallback Wrapper">
+                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td class="Fallback">
+                                                {% block content %}
+                                                {% endblock %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- END MAIN CONTENT AREA -->
+                        </table>
+                        <!-- END CENTERED WHITE CONTAINER -->
+
+                        <!-- START FOOTER -->
+                        <div class="Footer">
+                            <table role="presentation" class="Main">
+                                <!-- START MAIN CONTENT AREA -->
+                                <tr>
+                                    <td class="Fallback Wrapper">
+                                        <div class="Footer-top">
+                                            {% include "_extras/emails/_partials/contact.twig" %}
+                                        </div>
+
+                                        <table class="Footer-bottom" role="presentation" border="0" cellpadding="0" cellspacing="0" valign="middle">
+                                            <tr>
+                                                <td class="Fallback">
+                                                    <img class="Logo Img-responsive" src="{{ baseUrl }}assets/dist/logo--footer.png" alt="{{ systemName }} logo" width="158" height="43" border="0">
+                                                </td>
+                                                {% include "_extras/emails/_partials/socialMedia.twig" %}
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- END FOOTER -->
+                    </div>
+                </td>
+                <td class="Fallback">&nbsp;</td>
+            </tr>
+        </table>
+    </body>
+</html>
+{% endspaceless %}
+{% endinlinecss %}

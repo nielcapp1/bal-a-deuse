@@ -1,0 +1,136 @@
+dateModified: 1627143418
+email:
+  fromEmail: cappelleniels@hotmail.com
+  fromName: Bal-à-Deuse
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0c23b2f3-b11e-4541-93e2-b3b847afa94d: 'Tekst + Media' # Tekst + Media
+    0c96390c-3b6d-4cec-ae23-048436d9a3ce: Item # Item
+    1f0701d8-073f-4b68-b86c-3e47a9081329: 'Sociale media' # Sociale media
+    2c41acdc-937f-4ea6-867e-e911eb54a04d: Titel # Titel
+    2cf6c42a-40c9-4829-b965-cb7f47fedf44: Afbeelding # Afbeelding
+    3b54a6ae-e900-4967-8312-02fc312268cc: Buttons # Buttons
+    4aa25042-6998-4b00-b3f2-38d26a8e27ca: Tekst # Tekst
+    4ca1fe7d-0d0d-4a9d-9f2d-fa2f92c7d852: Button # Button
+    4efb1ae2-51cf-4a4b-b24c-a0246d4e1181: Achtergrond # Achtergrond
+    5aaaad18-ef39-4184-be13-62d81754201c: Afbeelding # Afbeelding
+    05f97747-5f1c-4445-8d77-717cc697a17b: Titel # Titel
+    6ac97722-4ea7-439c-a61e-e886236abeed: Titel # Titel
+    6eeb7b3c-2281-487b-9edb-741c35c8082f: Button # Button
+    6f173c59-6993-47c6-96c2-daee96d2e530: Button # Button
+    19f2e599-5908-4b11-a440-48375ecb0914: Bouwblokken # Bouwblokken
+    31a260de-9aed-4f28-9958-0ff7cb3f7eda: Tekst # Tekst
+    32aebc6c-557d-444c-b6e1-d162de6c0c34: Decoratie # Decoratie
+    35eb242b-4d62-4963-9675-4ec8435bc79b: Banner # Banner
+    35f54396-e9a2-41d0-99f0-3111d9df3223: Plaatsing # Plaatsing
+    41e1fe83-d445-40e5-9d4c-bfbbf40192b1: Border # Border
+    43c9d97f-9a5d-4d77-9a49-501f8a725dc0: Overlay # Overlay
+    55e3cc40-a0d3-43cd-95cb-f0551fbd1735: Header # Header
+    68af22b3-ee0c-4568-bfd6-13736bd5ed75: 'Pagina''s' # Pagina's
+    89dc02bd-1012-439d-84a9-da67f9a4a19e: Pagina # Pagina
+    95ce3781-d4c0-4b6d-a33d-892c5d60de78: Icoon # Icoon
+    97d2528b-ca41-4cbf-8cc3-5430bfe03280: Footer # Footer
+    0148cf8b-7aa4-46ba-8165-747b4543e691: Header # Header
+    443e0d3e-666e-42e6-92d4-029fc7dfd16a: Item # Item
+    0626fe43-8934-4bb7-848c-2fba4e3cc129: Overlay # Overlay
+    2369bbf4-1a1b-475b-a0b8-986b13ac178f: Bestanden # Bestanden
+    08188ff3-9a1c-4241-b86b-43705b404112: Kleur # Kleur
+    9543ff5c-58af-414d-9634-12c7cc9f8fb8: Tiles # Tiles
+    941205ec-5f4a-4c81-9f61-50209c10174c: Home # Home
+    6793810c-0dd1-4bde-aade-39314406280d: Kleur # Kleur
+    a96268ae-adb0-4938-877e-48a813a45fb7: Link # Link
+    a911267c-9da6-4288-8c8b-a104bed46494: Data # Data
+    abec68ee-c33d-4a63-ad93-ced536cf9969: Navigatie # Navigatie
+    adde58c6-7061-4a76-a36c-e154ba0a679b: Achtergrond # Achtergrond
+    b2b984d1-da38-4aea-8b74-c698bc402d66: Tekst # Tekst
+    bd7c0a90-b5ec-4752-b49c-3429e5978174: Grid # Grid
+    c9f34b26-d4c1-4ef0-8096-78fe0843cf47: Link # Link
+    c77e505c-c9ed-42af-8016-7e452c217c88: Buttons # Buttons
+    c4005ddd-30bc-4ecf-bba4-8b92c388365e: Kleur # Kleur
+    db1f6acc-a458-4d39-b9c1-c26ac58aacf7: Link # Link
+    dda60f44-f596-4917-8c95-080fd35f28da: Afbeelding # Afbeelding
+    de7c64da-4e90-4fad-af04-67d6a5997162: Type # Type
+    e63a0816-d52a-41f6-b3e1-f922f6beb1f9: Grootte # Grootte
+    f7dca370-2621-4dd8-a0da-f221c72fc190: Buttons # Buttons
+    f39f4361-87f1-44ea-8714-060af3b2e35c: Titel # Titel
+    fbe7162c-9980-4f78-b87f-6de65025971a: Overlay # Overlay
+plugins:
+  assetrev:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  colour-swatches:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.4.1.1
+  default-dashboard:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  freeform:
+    edition: lite
+    enabled: true
+    licenseKey: OWUHZ37DMMD9QH9F02SFIGWR
+    schemaVersion: 3.3.1
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redirect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.5
+  smith:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  splash:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+    settings:
+      authorField: ''
+      authorUrlField: ''
+      colorField: ''
+      volume: '1'
+  style-inliner:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: Bal-à-Deuse
+  schemaVersion: 3.7.7
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

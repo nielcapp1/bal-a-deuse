@@ -1,0 +1,14 @@
+/* Objects: Alert */
+
+// Namespace
+$alert-namespace:                   $namespace !default;
+
+// Padding
+$alert-padding-t:                   $spacing-unit--sm !default;
+$alert-padding-r:                   $spacing-unit / 1.5 !default;
+$alert-padding-b:                   $alert-padding-t !default;
+$alert-padding-l:                   $alert-padding-r !default;
+
+// Border
+$alert-border-width:                1 !default;
+$alert-border-radius:               2 !default;

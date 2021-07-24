@@ -1,0 +1,36 @@
+{% set defaults = {
+    class: null,
+    text: null,
+    icon: null
+} %}
+{% set options = options ? defaults|merge(options) : defaults %}
+{% set type = not link ? 'button' : 'a' %}
+
+{% set attributes = {
+    class: [
+        "Button",
+        options.class
+    ],
+    data: options.data|default(false),
+    href: link is not iterable ? link : false,
+    target: options.target|default(false),
+} %}
+<{{ type }}{{ attr(attributes) }}{% if link is iterable %}{{ link.getLinkAttributes() }}{% endif %}>
+    {% if options.icon and options.icon.src and options.icon.position == 'prefix' %}
+        <span class="Icon Icon--baseline u-marginRsm">
+            {{ svg(options.icon.src)|attr({
+                class: 'Button-icon'
+            }) }}
+        </span>
+    {% endif %}
+
+    {{ options.text ?: (link is iterable ? link.getText() : 'Lees meer') }}
+
+    {% if options.icon and options.icon.src and options.icon.position == 'suffix' %}
+        <span class="Icon Icon--baseline u-marginLsm">
+            {{ svg(options.icon.src)|attr({
+                class: 'Button-icon'
+            }) }}
+        </span>
+    {% endif %}
+</{{ type }}>

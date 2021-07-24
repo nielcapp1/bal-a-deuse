@@ -1,0 +1,50 @@
+{% import '_partials/macros' as macros %}
+{% set contact = {
+    address: data.fieldAddress ?? null,
+    phone: data.fieldPhone ??? null,
+    email: craft.app.systemSettings.emailSettings.fromEmail
+} %}
+
+<table class="Nav Nav--contact" role="presentation" border="0" cellpadding="0" cellspacing="0">
+    {% if contact.address %}
+        <tr class="Nav-item">
+            {# <td class="Nav-icon" width="40">
+                <img src="{{ baseUrl }}assets/img/email/address.png" alt="{{ 'general.address'|t }}" width="40" height="40" border="0">
+            </td>
+            <td width="12"></td> #}
+            <td>
+                <a class="Nav-link" href="https://www.google.com/maps/search/?api=1&query={{ contact.address.address|url_encode }}" target="_blank" rel="noopener noreferrer">{{ contact.address.parts.address }} {{ contact.address.parts.number }} - {{ contact.address.parts.postcode }} {{ contact.address.parts.city }}</a>
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if contact.email %}
+        <tr class="Separator">
+            <td colspan="3"></td>
+        </tr>
+        <tr class="Nav-item">
+            {# <td class="Nav-icon" width="40">
+                <img src="{{ baseUrl }}assets/img/email/email.png" alt="{{ 'general.email'|t }}" width="40" height="40" border="0">
+            </td>
+            <td width="10"></td> #}
+            <td>
+                <a class="Nav-link" href="mailto:{{ contact.email }}" target="_blank" rel="noopener noreferrer">{{ contact.email }}</a>
+            </td>
+        </tr>
+    {% endif %}
+
+    {% if contact.phone %}
+        <tr class="Separator">
+            <td colspan="3"></td>
+        </tr>
+        <tr class="Nav-item">
+            {# <td class="Nav-icon" width="40">
+                <img src="{{ baseUrl }}assets/img/email/phone.png" alt="{{ 'general.phone'|t }}" width="40" height="40" border="0">
+            </td>
+            <td width="10"></td> #}
+            <td>
+                <a class="Nav-link" href="tel:{{ macros.phone(contact.phone.value) }}" target="_blank" rel="noopener noreferrer">{{ contact.phone.value }}</a>
+            </td>
+        </tr>
+    {% endif %}
+</table>

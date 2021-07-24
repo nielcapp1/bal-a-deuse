@@ -1,0 +1,13 @@
+/**
+ * Lay-out: Medium
+ */
+
+@include mq($from: $viewport--md, $until: $viewport--lg - 1) {
+    .u-md-floatLeft {
+        float: left !important;
+    }
+
+    .u-md-floatRight {
+        float: right !important;
+    }
+}

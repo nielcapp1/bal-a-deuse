@@ -1,0 +1,67 @@
+.#{$button-namespace}ButtonGroup {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+
+    > .Button {
+        position: relative;
+        flex: 1 1 auto;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            z-index: 1;
+        }
+    }
+
+    &:not(.ButtonGroup--vertical) {
+
+        > .Button:not(:first-child),
+        > .ButtonGroup:not(:first-child) {
+            margin-left: px($button-border-width - 1);
+        }
+
+        > .Button:not(:last-child):not(.dropdown-toggle),
+        > .ButtonGroup:not(:last-child) > .Button {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        > .Button:not(:first-child),
+        > .ButtonGroup:not(:first-child) > .Button {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    // Vertical
+    &--vertical {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        > .Button,
+        > .ButtonGroup {
+            width: 100%;
+        }
+
+        > .Button:not(:first-child),
+        > .ButtonGroup:not(:first-child) {
+            margin-top: px($button-border-width - 1);
+        }
+
+        // Reset rounded corners
+        > .Button:not(:last-child):not(.dropdown-toggle),
+        > .ButtonGroup:not(:last-child) > .Button {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        > .Button:not(:first-child),
+        > .ButtonGroup:not(:first-child) > .Button {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+}

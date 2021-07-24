@@ -1,0 +1,26 @@
+{% set background = entry.fieldBackground.one() ?? null %}
+
+<header class="Header{% if (background is defined and background.fieldHeader is defined) %} Header--{{ background.fieldHeader.label }}{% endif %}">
+    <div class="Container">
+        <a class="Logo Logo--header u-block" href="{{ siteUrl }}">
+            {% if (background is defined and background.fieldHeader is defined) %}
+                {% if background.fieldHeader.label == 'red' or background.fieldHeader.label == 'blue' or background.fieldHeader.label == 'black' %}
+                    <img class="Logo-object" src="{{ baseUrl }}assets/dist/logo-white.png" alt="logo">
+                {% else %}
+                    <img class="Logo-object" src="{{ baseUrl }}assets/dist/logo-black.png" alt="logo">
+                {% endif %}
+            {% endif %}
+        </a>
+
+        <div class="Navigation">
+            <button class="Navigation-toggle u-md-hidden u-lg-hidden u-xl-hidden" aria-label="Toggle navigation">
+                {% include "_partials/components/toggle.twig" %}
+            </button>
+
+            <div class="Navigation-body">
+                {% include "_partials/components/navigation/main.twig" %}
+                {% include "_partials/components/navigation/lang.twig" %}
+            </div>
+        </div>
+    </div>
+</header>

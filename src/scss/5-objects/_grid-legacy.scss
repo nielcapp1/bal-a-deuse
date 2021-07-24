@@ -1,0 +1,91 @@
+/* Grid */
+@if $grid-legacy {
+
+    /**
+     * DO NOT apply dimension or offset utilities to the `Grid` element. All cell
+     * widths and offsets should be applied to child grid cells.
+     */
+
+    // Grid container
+    //
+    // All content must be contained within child `Grid-cell` elements.
+    //
+    // 1. Account for browser defaults of elements that might be the root node of
+    //    the component.
+
+    .Grid {
+        box-sizing: border-box;
+        display: flex; /* 1 */
+        flex-flow: row wrap;
+        margin: 0; /* 1 */
+        padding: 0; /* 1 */
+    }
+
+    /**
+        * No explicit width by default. Rely on combining `Grid-cell` with a dimension
+        * utility or a component class that extends 'Grid'.
+        *
+        * 1. Set flex items to full width by default
+        * 2. Fix issue where elements with overflow extend past the
+        *      `Grid-cell` container - https://git.io/vw5oF
+        */
+
+    .Grid-cell {
+        box-sizing: inherit;
+        flex-basis: 100%; /* 1 */
+        min-width: 0; /* 2 */
+    }
+
+    /**
+        * Modifiers
+        */
+
+    // Align
+    .Grid--alignCenter {
+        justify-content: center;
+    }
+
+    .Grid--alignRight {
+        justify-content: flex-end;
+    }
+
+    .Grid--alignMiddle {
+        align-items: center;
+    }
+
+    .Grid--alignBottom {
+        align-items: flex-end;
+    }
+
+    // Allow cells to equal distribute width
+    // 1. Provide all values to avoid IE10 bug with shorthand flex http://git.io/vllC7
+    // Use `0%` to avoid bug in IE10/11 with unitless flex basis http://git.io/vllWx
+    .Grid--fill > .Grid-cell {
+        flex: 1 1 0%; /* 1 */
+    }
+
+    // Fit cells to their content
+    .Grid--fit > .Grid-cell {
+        flex-basis: auto;
+    }
+
+    // All cells match height of tallest cell in a row
+    .Grid--equalHeight > .Grid-cell {
+        display: flex;
+    }
+
+    // Gutters
+    @each $name, $short in $SIZES {
+        @if ($short == 'md') {
+            $name: '';
+        }
+
+        .#{$grid-namespace}Grid--with#{$name}Gutter {
+            margin-left: u(map-get($grid-gutters, $short) * -1);
+
+            > .#{$grid-namespace}Grid-cell {
+                padding-left: u(map-get($grid-gutters, $short));
+            }
+        }
+    }
+}

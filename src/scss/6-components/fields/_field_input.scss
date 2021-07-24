@@ -1,0 +1,14 @@
+/* Fields: input */
+.#{$form-namespace}Form-field--input,
+.#{$form-namespace}Form-field--textarea {
+    @extend %Form-field--reset;
+    @extend %Form-field--shadow;
+}
+
+.#{$form-namespace}Form-field--input {
+    padding: em($form-element-padding--t, $form-element-padding--r, $form-element-padding--b, $form-element-padding--l);
+}
+
+.#{$form-namespace}Form-field--textarea {
+    padding: em($form-element-padding--t - 2, $form-element-padding--r, $form-element-padding--b - 2, $form-element-padding--l);
+}

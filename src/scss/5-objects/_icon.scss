@@ -1,0 +1,17 @@
+/* Icon */
+.Icon {
+    display: inline-flex;
+    align-self: center;
+    flex-shrink: 0;
+
+    svg {
+        fill: currentColor;
+        height: 1em;
+        width: 1em;
+    }
+
+    &.Icon--baseline svg {
+        top: 0.125em;
+        position: relative;
+    }
+}

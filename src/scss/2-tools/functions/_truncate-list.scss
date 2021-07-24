@@ -1,0 +1,10 @@
+/* Functions: Truncate list */
+@function truncate-list($list, $length) {
+    $_return: ();
+
+    @for $i from 1 through length($list) {
+        $_return: if($i <= $length, append($_return, nth($list, $i)), $_return);
+    }
+
+    @return $_return;
+}

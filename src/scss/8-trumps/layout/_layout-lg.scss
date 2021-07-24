@@ -1,0 +1,13 @@
+/**
+ * Lay-out: Large
+ */
+
+@include mq($from: $viewport--lg) {
+    .u-lg-floatLeft {
+        float: left !important;
+    }
+
+    .u-lg-floatRight {
+        float: right !important;
+    }
+}

@@ -1,0 +1,10 @@
+{% set background = entry.fieldBackground.one() ?? null %}
+
+<footer class="Footer{% if (background is defined and background.fieldFooter is defined) %} Footer--{{ background.fieldFooter.label }}{% endif %}">
+    <div class="Container">
+        <div class="Footer-top">
+            <a href="https://clecodee.be/" target="_blank" class="Copyright">© Clé Codée</a>
+            {% include "_partials/components/navigation/socialMedia.twig" %}
+        </div>
+    </div>
+</footer>

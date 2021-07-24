@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 8f1c399b-481a-4dda-89ec-def2fcda6155
+handle: fieldBlocks
+instructions: ''
+name: Bouwblokken
+searchable: true
+settings:
+  contentTable: '{{%matrixcontent_fieldblocks}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

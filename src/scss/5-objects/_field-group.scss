@@ -1,0 +1,100 @@
+/* Objects: FieldGroup */
+.FieldGroup {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+
+    > .Form-field {
+        position: relative; // For focus state's z-index
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0; // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
+        margin-bottom: 0;
+
+        &:focus {
+            z-index: 3;
+        }
+
+        + .Form-field {
+            margin-left: px($form-element-border-width * -1);
+        }
+
+        &:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    // Prepend & append
+    &-prepend,
+    &-append {
+        display: flex;
+
+        .Button {
+            position: relative;
+            z-index: 2;
+
+            &:focus {
+                z-index: 3;
+            }
+        }
+
+        .Button + .Button,
+        .Button + .FieldGroup-text,
+        .FieldGroup-text + .FieldGroup-text,
+        .FieldGroup-text + .Button {
+            margin-left: px($form-element-border-width * -1);
+        }
+    }
+
+    &-prepend {
+        margin-right: px($form-element-border-width * -1);
+    }
+
+    &-append {
+        margin-left: px($form-element-border-width * -1);
+    }
+
+    & > .FieldGroup-prepend > .Button,
+    & > .FieldGroup-prepend > .FieldGroup-text,
+    & > .FieldGroup-append:not(:last-child) > .Button,
+    & > .FieldGroup-append:not(:last-child) > .FieldGroup-text,
+    & > .FieldGroup-append:last-child > .Button:not(:last-child):not(.dropdown-toggle),
+    & > .FieldGroup-append:last-child > .FieldGroup-text:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    & > .FieldGroup-append > .Button,
+    & > .FieldGroup-append > .FieldGroup-text,
+    & > .FieldGroup-prepend:not(:first-child) > .Button,
+    & > .FieldGroup-prepend:not(:first-child) > .FieldGroup-text,
+    & > .FieldGroup-prepend:first-child > .Button:not(:first-child),
+    & > .FieldGroup-prepend:first-child > .FieldGroup-text:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    // Addons
+    &-text {
+        @include font-size($font-size);
+        align-items: center;
+        background-color: $field-group-bg-color;
+        border: px($form-element-border-width) solid $form-element-border-color;
+        border-radius: u($form-element-border-radius);
+        color: inherit;
+        display: flex;
+        font-weight: 400;
+        line-height: u($line-height);
+        margin-bottom: 0;
+        padding: em($form-element-padding--t, $form-element-padding--r, $form-element-padding--b, $form-element-padding--l);
+        text-align: center;
+        white-space: nowrap;
+    }
+}

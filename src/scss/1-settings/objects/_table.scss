@@ -1,0 +1,23 @@
+/* Objects: Table */
+
+// Namespace
+$table-namespace:                   $namespace !default;
+
+// Padding
+$table-padding-t:                   $spacing-unit--sm / 3 !default;
+$table-padding-r:                   $spacing-unit / 3 !default;
+$table-padding-b:                   $table-padding-t !default;
+$table-padding-l:                   $table-padding-r !default;
+
+// Border
+$table-border-width:                1 !default;
+$table-border-radius:               0 !default;
+
+// Colors
+$table-bg-color:                    transparent !default;
+$table-bg-color--accent:            $grey--50 !default;
+
+$table-header-color:                $grey--100 !default;
+$table-footer-color:                $grey--100 !default;
+
+$table-border-color:                $grey--300 !default;

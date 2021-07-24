@@ -1,0 +1,9 @@
+/* Logo */
+.Logo {
+    flex-shrink: 0;
+    margin-right: auto;
+
+    &-object {
+        width: u(64);
+    }
+}

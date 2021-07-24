@@ -1,0 +1,22 @@
+/**
+ * Position: Extra Small
+ */
+
+@include mq($until: $viewport--sm - 1) {
+    .u-xs-posAbsolute {
+        position: absolute !important;
+    }
+
+    .u-xs-posFixed {
+        backface-visibility: hidden;
+        position: fixed !important;
+    }
+
+    .u-xs-posRelative {
+        position: relative !important;
+    }
+
+    .u-xs-posStatic {
+        position: static !important;
+    }
+}

@@ -1,0 +1,19 @@
+fieldLayouts:
+  88cd8fd9-3eda-4100-a533-d834493ab556:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1f0701d8-073f-4b68-b86c-3e47a9081329 # Sociale media
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhoud
+        sortOrder: 1
+handle: data
+name: Data
+sortOrder: 2

@@ -1,0 +1,20 @@
+/* Objects: Structure */
+
+// Namespace
+$structure-namespace:                   $namespace !default;
+
+// Widths & Heights
+$structure-gutter--l:                    40 !default;
+$structure-gutter--r:                    $structure-gutter--l !default;
+
+$structure-header-height:                140 !default;
+$structure-header-gutter:                $spacing-unit !default;
+
+$structure-footer-height:                auto !default;
+$structure-footer-gutter:                $spacing-unit !default;
+
+// Responsive
+$structure-responsive-gutter--l:         20 !default;
+$structure-responsive-gutter--r:         $structure-responsive-gutter--l !default;
+
+$structure-responsive-breakpoint:        $container-width + if($structure-responsive-gutter--r > 0 and $structure-gutter--r != $structure-responsive-gutter--r, $structure-gutter--r, 0) + if($structure-responsive-gutter--l > 0 and $structure-gutter--l != $structure-responsive-gutter--l, $structure-gutter--l, 0) !default;

@@ -1,0 +1,5 @@
+/* Gallery */
+$lg-path-fonts: '#{$path-fonts}gallery' !default;
+$lg-path-images: '#{$path-img}gallery' !default;
+
+@import 'node_modules/lightgallery.js/src/sass/lightgallery.scss';

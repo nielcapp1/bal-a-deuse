@@ -1,0 +1,129 @@
+/* Reset */
+
+// Box-sizing
+* {
+
+    &,
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+// html
+html {
+    @include font-smoothing($font-smoothing);
+    box-sizing: border-box;
+    font-size: add-unit(($font-size / 16), em);
+    line-height: ($line-height / $font-size);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+// Media
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+// Spacing and borders
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+    margin: 0;
+}
+
+iframe {
+    border: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+}
+
+option {
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+// Button fix (Firefox/IE)
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+// Help cursor
+abbr[title],
+dfn[title] {
+    cursor: help;
+}
+
+// Underlines
+u,
+ins {
+    text-decoration: underline;
+}
+
+// Alt
+img {
+    font-style: italic;
+}
+
+// Selection
+::selection {
+    text-shadow: none;
+}
+
+// Tab index
+[tabindex="-1"]:focus {
+    outline: none !important;
+}

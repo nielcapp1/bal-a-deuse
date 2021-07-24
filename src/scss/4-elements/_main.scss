@@ -1,0 +1,15 @@
+/* Main */
+html {
+    background-color: $bg-color;
+    color: $text-color;
+    height: 100%;
+    font-family: $font-roboto;
+
+    &.hide-scroll {
+        overflow: hidden;
+    }
+}
+
+body {
+    height: 100%;
+}

@@ -1,0 +1,17 @@
+{% set tiles = item.fieldTiles.all()|default(null) %}
+
+{% if tiles %}
+<div class="Block Block--grid">
+    <div class="Masonry">
+        {% for tile in tiles %}
+            {% include "_partials/blocks/tiles/#{tile.fieldSize|kebab}.twig" with {
+                title: tile.fieldTitle|default(''),
+                color: tile.fieldColor|default('black'),
+                type: tile.fieldType|default('default'),
+                link: tile.fieldLink|default(null),
+                image: tile.fieldImage.one()|default(null)
+            } %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

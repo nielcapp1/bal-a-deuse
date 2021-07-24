@@ -1,0 +1,38 @@
+/* Fields: select */
+select {
+    cursor: pointer;
+    width: 100% !important;
+
+    // Fixed or fluid width
+    @if is-false($form-element-fluid) and not is-null($form-element--default) {
+        @include mq($from: $viewport--sm) {
+            max-width: u($form-element--default);
+        }
+    }
+}
+
+.#{$form-namespace}Form-field--select {
+    @extend %Form-field--reset;
+    @extend %Form-field--shadow;
+    @include background-svg('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.36 402"><path d="M18.27,164.45H274.09a18.17,18.17,0,0,0,12.85-31.12L159,5.42a17.93,17.93,0,0,0-25.7,0L5.42,133.33a17.93,17.93,0,0,0,0,25.7A17.57,17.57,0,0,0,18.27,164.45Z"/><path d="M274.09,237.55H18.27A17.57,17.57,0,0,0,5.42,243a17.93,17.93,0,0,0,0,25.7l127.91,127.9a17.92,17.92,0,0,0,25.7,0L286.93,268.66a18.27,18.27,0,0,0-12.85-31.12Z"/></svg>');
+    background-position: right u($spacing-unit--sm) center;
+    background-repeat: no-repeat;
+    background-size: u($spacing-unit--sm);
+    box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow);
+    line-height: normal;
+    overflow: hidden;
+    padding: em($form-element-padding--t, $form-select-element-icon-width, $form-element-padding--b, $form-element-padding--l);
+}
+
+.#{$form-namespace}Form-field--select[multiple] {
+    @extend %Form-field--reset;
+    height: auto;
+
+    option {
+        padding: em(halve($form-element-padding--t), $form-element-padding--r, halve($form-element-padding--b), $form-element-padding--l);
+
+        + option {
+            border-top: 1px solid $form-element-border-color;
+        }
+    }
+}

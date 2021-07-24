@@ -1,0 +1,106 @@
+/* Image */
+
+// Fluid
+img {
+    @include image-rendering($image-rendering);
+    max-width: 100%;
+    height: auto;
+}
+
+
+// Figure
+figure {
+
+    &,
+    > img {
+        display: block;
+    }
+
+    img {
+        min-height: 100%;
+    }
+}
+
+// Picture
+picture {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    img {
+
+        &::before {
+            @include position(absolute, 0, 0, 0, 0);
+            background-color: $image-color;
+            display: block;
+            content: '';
+        }
+
+        &::after {
+            @include position(absolute, $top: 50%, $left: 50%);
+            background-image: url('#{$path-img}icons/unlink.svg');
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: u($spacing-unit / 1.5) auto;
+            content: "Image could not be loaded:\A"attr(alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: u($spacing-unit);
+            transform: translate(-50%, -50%);
+            font-size: 75%;
+            line-height: 1.75;
+            text-align: center;
+            white-space: pre;
+
+            html[lang="nl"] & {
+                content: "Afbeelding kon niet worden geladen:\A"attr(alt);
+            }
+
+            html[lang="fr"] & {
+                content: "L\'image n'a pas pu être chargée:\A"attr(alt);
+            }
+        }
+    }
+
+    &:empty {
+
+        &::after {
+            @include position(absolute, 0, 0, 0, 0);
+            background-image: url('#{$path-img}icons/image.svg');
+            background-size: u($spacing-unit--lg);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            content: '';
+            display: block;
+        }
+    }
+
+    &[data-ratio] {
+
+        > img {
+            @include position(absolute);
+            min-height: 100%;
+            width: 100%;
+        }
+    }
+
+    // Modifiers
+    @each $ratio-name, $ratio-value in $RATIOS {
+
+        @each $antecedent, $consequent in $ratio-value {
+
+            @if (type-of($antecedent) != number) {
+                @error "`#{$antecedent}` needs to be a number.";
+            }
+
+            @if (type-of($consequent) != number) {
+                @error "`#{$consequent}` needs to be a number.";
+            }
+
+            &[data-ratio="#{$antecedent}:#{$consequent}"] {
+                padding-bottom: ($consequent/$antecedent) * 100%;
+            }
+        }
+    }
+}

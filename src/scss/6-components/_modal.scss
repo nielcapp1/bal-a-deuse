@@ -1,0 +1,92 @@
+.#{$modal-namespace}Modal {
+    @include transition(#{opacity, visibility});
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 10;
+
+    &,
+    &:before {
+        @include position(fixed, 0, 0, 0, 0);
+    }
+
+    &::before {
+        background-color: rgba($black, .5);
+        content: '';
+        z-index: -1;
+    }
+
+    &:not(.is-active) {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    // Inner
+    &-inner {
+        display: flex;
+        align-items: center;
+        min-height: 100%;
+
+        &-body {
+            background-color: $white;
+            border-radius: if($modal-border-radius > 0, px($modal-border-radius), 0);
+            border: px($modal-border-width) solid $modal-border-color;
+            border-color: $modal-border-color;
+            margin: u($modal-margin--t, $modal-margin--r, $modal-margin--b, $modal-margin--b);
+            width: auto;
+
+            @include mq($from: $viewport--sm) {
+                margin: u($spacing-unit--lg, auto);
+                max-width: u($modal-width);
+                width: 100%;
+            }
+        }
+    }
+
+    // Header
+    &-header {
+        border-bottom: 1px solid $grey--300;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: u($modal-padding--t, $modal-padding--r, $modal-padding--b, $modal-padding--l);
+    }
+
+    // Title
+    &-title {
+        @include font-size(20, false);
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+
+    // Close
+    &-close {
+        @include font-size($font-size * 1.5);
+        @include transition(#{opacity, visibility});
+        cursor: pointer;
+        font-weight: 700;
+        line-height: 1;
+        padding: u($modal-padding--t, $modal-padding--r, $modal-padding--b, $modal-padding--l);
+        margin: u($modal-padding--t * -1, $modal-padding--r * -1, $modal-padding--b * -1, auto);
+
+        html:not(.is-tabbing) &:focus {
+            outline: 0;
+        }
+
+        &:not(:hover) {
+            opacity: .5;
+        }
+    }
+
+    // Body
+    &-body {
+        padding: em($modal-padding--t, $modal-padding--r, $modal-padding--b, $modal-padding--l);
+    }
+
+    // Footer
+    &-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: em($modal-padding--t, $modal-padding--r, $modal-padding--b, $modal-padding--l);
+        border-top: 1px solid $grey--300;
+    }
+}

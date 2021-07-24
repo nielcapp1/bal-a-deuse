@@ -1,0 +1,214 @@
+.Block {
+
+    &--grid {
+        padding: u($spacing-unit, 0, $spacing-unit, $spacing-unit);
+
+        @include mq($until: $viewport--lg - 1) {
+            padding: u($spacing-unit, $spacing-unit--md, $spacing-unit, $spacing-unit);
+        }
+
+        .Media {
+            &-image {
+                object-fit: cover;
+            }
+        }
+
+        .Masonry {
+            &-cell {
+
+                .Mega {
+                    @include mq($until: $viewport--lg - 1) {
+                        font-size: u(36);
+                    }
+                }
+                
+                &.is-big {
+                    width: calc(50% - 20px);
+
+                    @include mq($until: $viewport--lg - 1) {
+                        width: calc(50% - 10px);
+                    }
+
+                    @include mq($until: $viewport--md - 1) {
+                        width: calc(100%);
+                    }
+                 
+                    .FlexEmbed {
+
+                        &--1by1 {
+                            &::before {
+                                padding-bottom: calc(100% - 10px);
+
+                                @include mq($until: $viewport--lg - 1) {
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+
+                        &--2by1 {
+                            &::before {
+                                padding-bottom: calc(50% - 15px);
+
+                                @include mq($until: $viewport--lg - 1) {
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.is-small {
+                    width: calc(25% - 20px);
+
+                    @include mq($until: $viewport--lg - 1) {
+                        width: calc(50% - 10px);
+                    }
+
+                    @include mq($until: $viewport--md - 1) {
+                        width: calc(100%);
+                    }
+
+                    .FlexEmbed {
+                        &--1by1 {
+                            &::before {
+                                padding-bottom: calc(100% - 5px);
+
+                                @include mq($until: $viewport--lg - 1) {
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+
+                        &--1by2 {
+                            &::before {
+                                padding-bottom: calc(200% + 10px);
+
+                                @include mq($until: $viewport--lg - 1) {
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .Tile {
+            display: flex;
+            height: 100%;
+            padding: u($spacing-unit);
+            position: relative;
+            text-decoration: none;
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            &--default {
+
+                &.Tile {
+                    &--black {
+                        background-color: $cc-black;
+                        color: $white;
+                    }
+
+                    &--red {
+                        background-color: $cc-red;
+                        color: $white;
+                    }
+
+                    &--yellow {
+                        background-color: $cc-yellow;
+                        color: $white;
+                    }
+
+                    &--blue {
+                        background-color: $cc-blue;
+                        color: $white;
+                    }
+                }
+            }
+
+            &--overlay {
+
+                .Media-object {
+                    top: 0;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    z-index: -2;
+                }
+
+                &::after {
+                    content: "";
+                    @include position(absolute, 0, 0, 0, 0, 0);
+                    width: 100%;
+                    height: 100%;
+                    mix-blend-mode: color;
+                }
+
+                &.Tile {
+                    &--black {
+                        color: $white;
+
+                        &::after {
+                            background-color: $cc-black;
+                        }
+                    }
+
+                    &--red {
+                        color: $white;
+
+                        &::after {
+                            background-color: $cc-red;
+                        }
+                    }
+
+                    &--yellow {
+                        color: $white;
+
+                        &::after {
+                            background-color: $cc-yellow;
+                        }
+                    }
+
+                    &--blue {
+                        color: $white;
+
+                        &::after {
+                            background-color: $cc-blue;
+                        }
+                    }
+                }
+            }
+
+            &--border {
+                background-color: $white;
+                border-width: u(5);
+                border-style: solid;
+
+                &.Tile {
+                    &--black {
+                        border-color: $cc-black;
+                        color: $cc-black;
+                    }
+
+                    &--red {
+                        border-color: $cc-red;
+                        color: $cc-red;
+                    }
+
+                    &--yellow {
+                        border-color: $cc-yellow;
+                        color: $cc-yellow;
+                    }
+
+                    &--blue {
+                        border-color: $cc-blue;
+                        color: $cc-blue;
+                    }
+                }
+            }
+        }
+    }
+}

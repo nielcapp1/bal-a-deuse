@@ -1,0 +1,12 @@
+/* Mixin: Hover */
+@mixin hover($value: hover) {
+    @if($value == hover) {
+        @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            @content;
+        }
+    } @else {
+        @media (hover: $value) {
+            @content;
+        }
+    }
+}

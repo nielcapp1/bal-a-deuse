@@ -1,0 +1,11 @@
+/* Mixin: Grid */
+@mixin grid($cols, $rows, $inline: false) {
+    display: if($inline, inline-grid, grid);
+    grid-template-columns: $cols;
+    grid-template-rows: $rows;
+}
+
+@mixin grid-area ($col-start, $col-end, $row-start, $row-end) {
+    grid-column: #{$col-start}/#{$col-end};
+    grid-row: #{$row-start}/#{$row-end};
+}

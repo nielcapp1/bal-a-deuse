@@ -1,0 +1,15 @@
+/* Mixin: Last-children */
+@mixin last-children($level: 3) {
+    $_selector: '> *:last-child';
+    $_selectors-1: ();
+    $_selectors-2: ();
+
+    @for $i from 1 through $level {
+        $_selectors-1: append($_selectors-1, $_selector);
+        $_selectors-2: append($_selectors-2, $_selectors-1, comma);
+    }
+
+    #{$_selectors-2} {
+        @content;
+    }
+}

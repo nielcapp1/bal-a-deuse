@@ -1,0 +1,97 @@
+/* Functions: Maps */
+
+// Deep get
+@function map-deep-get($map, $keys...) {
+    $_return: $map;
+
+    @if is-map($_return) {
+        @each $key in $keys {
+            @if is-map($_return) {
+                $_return: map-get($_return, $key);
+            }
+        }
+    } @else {
+        @return throw('`#{$_return}` is not a map for `map-deep-get()`');
+    }
+
+    @return $_return;
+}
+
+// Deep merge
+@function map-deep-merge($map1, $map2) {
+    @if not is-map($map1) or not is-map($map2) {
+        $map1: $map2;
+    } @else {
+        @each $key, $value in $map2 {
+            $_new: ($key: map-deep-merge(map-get($map1, $key), $value));
+            $map1: map-merge($map1, $_new);
+        }
+    }
+
+    @return $map1;
+}
+
+// Deep set
+@function map-deep-set($map, $keys-value...) {
+    $_value: nth($keys-value, -1);
+    $_keys: truncate-list($keys-value, length($keys-value) - 1);
+    $_length: length($_keys);
+    $_return: ();
+
+    @if is-map($map) {
+        @for $i from 1 through $_length {
+            $_n: 0 - $i;
+            $_level: truncate-list($_keys, $_length + $_n);
+            $_level: map-deep-get($map, $_level...);
+            $_merge: nth($_keys, $_n);
+            $_merge: ($_merge: $_value);
+            $_return: if($_level, map-merge($_level, $_merge), $_merge);
+            $_value: $_return;
+        }
+    } @else {
+        @return throw('`#{$map}` is not a map for `map-deep-set()`');
+    }
+
+    @return $_return;
+}
+
+// Depth
+@function map-depth($map) {
+    $_level: 1;
+
+    @if is-map($map) {
+        @each $key, $value in $map {
+            @if is-map($value) {
+                $_level: max(map-depth($value) + 1, $_level);
+            }
+        }
+    } @else {
+        @return throw('`#{$map}` is not a map for `map-depth()`');
+    }
+
+    @return $_level;
+}
+
+// Has keys
+@function map-has-keys($map, $keys...) {
+    $_return: null;
+    $_stop: false;
+
+    @if is-map($map) {
+        @each $key in $keys {
+            @if not($_stop) {
+                $_return: map-has-key($map, $key);
+            }
+
+            @if $_return {
+                $map: map-get($map, $key);
+            } @else {
+                $_stop: true;
+            }
+        }
+    } @else {
+        @return throw('`#{$map}` is not a map for `map-has-keys()`');
+    }
+
+    @return $_return;
+}

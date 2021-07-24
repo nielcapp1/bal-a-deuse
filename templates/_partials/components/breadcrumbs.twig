@@ -1,0 +1,12 @@
+{% set breadcrumbLinks = seomatic.jsonLd.get('breadcrumbList').itemListElement %}
+{% if breadcrumbLinks|length > 1 %}
+    <nav class="Nav Nav--breadcrumbs" aria-label="{{ 'components.breadcrumbs'|t }}">
+        <ol class="Nav-list">
+            {% for link in breadcrumbLinks %}
+                <li class="Nav-item{{ loop.last ? ' is-active' }}"{{ loop.last ? ' aria-current="page"' }}>
+                    <a class="Nav-link" href="{{ link.item }}">{{ link.name }}</a>
+                </li>
+            {% endfor %}
+        </ol>
+    </nav>
+{% endif %}

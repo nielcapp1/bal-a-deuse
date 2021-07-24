@@ -1,0 +1,25 @@
+{% extends "_layouts/_partials/variables.twig" %}
+
+{%- block htmlPage -%}
+    {% minify %}
+    <!doctype html>
+        {% block htmlTag %}
+            <html lang="{{ craft.app.language|slice(0,2) }}">
+        {% endblock htmlTag %}
+        {% block headTag %}
+            <head>
+        {% endblock headTag %}
+            {% include "_layouts/_types/_partials/_head/meta.twig" %}
+            {% block headContent %}
+            {% endblock headContent %}
+            </head>
+
+            {% block bodyTag %}
+            <body>
+            {% endblock bodyTag %}
+                {% block bodyContent %}
+                {% endblock bodyContent %}
+            </body>
+        </html>
+    {% endminify %}
+{%- endblock htmlPage -%}

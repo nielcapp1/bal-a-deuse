@@ -1,0 +1,38 @@
+{% set cookieGroups = gdpr.fieldCookies ?? null %}
+{% if cookieGroups|length %}
+    <div class="CookieGroups">
+        {% for group in cookieGroups.fieldCookies('not :empty:').all() %}
+            {% set items = group.fieldCookies ?? null %}
+            <div class="CookieGroup u-marginBmd">
+                <h2>{{ group.fieldTitle }}</h2>
+                {% if items|length %}
+                    {% set headers = group.getFieldLayout().getFields()|last.columns|filter(e => e.width != 0) %}
+                    <div class="CookieItems">
+                        <table class="Table is-responsive">
+                            {% if headers|length %}
+                                <thead>
+                                    <tr>
+                                        {% for col in headers %}
+                                            <th class="Table-cell" width="{{ col.width }}">{{ col.heading }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                            {% endif %}
+                            <tbody>
+                                {% for item in items|filter(e => (e.fieldActive == 1)) %}
+                                    <tr>
+                                        {% for col in headers %}
+                                            {% set necessary = group.fieldRequired and (col.handle == 'itemName') %}
+                                            <td class="Table-cell{% if necessary %} js-cookieNecessary{% endif %}" data-table-label="{{ col.heading }}">{{ item[col.handle] }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <p><button class="Button Button--info js-cookiesUpdate">{{ 'cookies.editPreferences'|t }}</button></p>
+{% endif %}

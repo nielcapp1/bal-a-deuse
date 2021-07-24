@@ -1,0 +1,6 @@
+{% set bodyClass = bodyClass ?? "#{entry.type|ucfirst}Page" %}
+
+{% include [
+    "_views/page/types/#{entry.type}.twig",
+    "_views/#{entry.type}/index.twig"
+] %}

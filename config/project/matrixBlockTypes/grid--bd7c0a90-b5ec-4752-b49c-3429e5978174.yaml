@@ -1,0 +1,84 @@
+field: 19f2e599-5908-4b11-a440-48375ecb0914 # Bouwblokken
+fieldLayouts:
+  2bb9ba72-9a1c-47b2-95b6-5ed62e1fb4d6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 9543ff5c-58af-414d-9634-12c7cc9f8fb8 # Tiles
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9543ff5c-58af-414d-9634-12c7cc9f8fb8: # Tiles
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldTiles
+    instructions: ''
+    name: Tiles
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 05f97747-5f1c-4445-8d77-717cc697a17b # Titel
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - de7c64da-4e90-4fad-af04-67d6a5997162 # Type
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e63a0816-d52a-41f6-b3e1-f922f6beb1f9 # Grootte
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - c4005ddd-30bc-4ecf-bba4-8b92c388365e # Kleur
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - a96268ae-adb0-4938-877e-48a813a45fb7 # Link
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - dda60f44-f596-4917-8c95-080fd35f28da # Afbeelding
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_2_fieldtiles}}'
+      fieldLayout: matrix
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: Tile
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: grid
+name: Grid
+sortOrder: 1

@@ -1,0 +1,7 @@
+<label class="Form-field Form-field--file" for="{{ fieldId }}">
+    {{ field.renderInput({
+        class: "Form-field-input",
+        id: fieldId
+    }) }}
+    <span class="Form-indicator" data-file-text="&hellip;" data-file-multiple="{{ 'components.fields.filesSelected'|t }}" data-file-button="{{ 'components.fields.browse'|t }}"></span>
+</label>

@@ -1,0 +1,9 @@
+{% extends "_layouts/email.twig" %}
+
+{% block content %}
+    {% if body %}
+        {{ body }}
+    {% else %}
+        <p>Dit is een testbericht</p>
+    {% endif %}
+{% endblock %}

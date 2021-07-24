@@ -1,0 +1,68 @@
+/* Fields: field */
+%Form-field--reset {
+    @include font-smoothing($font-smoothing);
+    appearance: none;
+    background-color: $form-element-background-color;
+    border-radius: if($form-element-border-radius > 0, px($form-element-border-radius), 0);
+    border: px($form-element-border-width) solid $form-element-border-color;
+    color: $form-element-color;
+    vertical-align: middle;
+    width: 100%;
+
+    // Fixed or fluid width
+    @if is-false($form-element-fluid) and not is-null($form-element--default) {
+        @include mq($from: $viewport--sm) {
+            max-width: u($form-element--default);
+        }
+    }
+
+    // Error
+    .#{$form-namespace}Form-item.is-error & {
+        border-color: $form-error-color;
+    }
+
+    // Success
+    .#{$form-namespace}Form-item.is-success & {
+        border-color: $form-success-color;
+    }
+}
+
+%Form-field--shadow {
+    box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow);
+
+    // UI state
+    &:focus {
+        border-color: $form-element-border-color--focus;
+        box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-element-box-shadow--focus);
+        outline: 0;
+        z-index: 1;
+
+        // Error
+        .#{$form-namespace}Form-item.is-error & {
+            box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-error-element-box-shadow);
+        }
+
+        // Success
+        .#{$form-namespace}Form-item.is-success & {
+            box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-success-element-box-shadow);
+        }
+    }
+}
+
+.#{$form-namespace}Form-field {
+    font-family: inherit;
+    position: relative;
+}
+
+// Indicator for file, radio & checkbox elements
+.#{$form-namespace}Form-indicator {
+    user-select: none;
+}
+
+// Sizes
+.#{$form-namespace}Form-field--xs { max-width: u($form-element--xs) !important; }
+.#{$form-namespace}Form-field--sm { max-width: u($form-element--sm) !important; }
+.#{$form-namespace}Form-field--md { max-width: u($form-element--md) !important; }
+.#{$form-namespace}Form-field--lg { max-width: u($form-element--lg) !important; }
+.#{$form-namespace}Form-field--xl { max-width: u($form-element--xl) !important; }
+.#{$form-namespace}Form-field--full { max-width: none !important; }

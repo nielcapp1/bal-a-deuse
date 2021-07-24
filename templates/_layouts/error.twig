@@ -1,0 +1,11 @@
+{% extends "_layouts/base.twig" %}
+
+{% block content %}
+    <div class="Container">
+        <h1 class="Error-title u-marginTxl u-sm-marginTlg u-xs-marginTlg u-textCenter">{{ error.type }} - {{ error.title }}</h1>
+        <p class="u-textCenter">{{ error.text|nl2br }}</p>
+    </div>
+{% endblock %}
+
+{% block bodyJs %}
+{% endblock bodyJs %}

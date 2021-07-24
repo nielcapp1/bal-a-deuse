@@ -1,0 +1,15 @@
+/* Objects: FlexEmbed */
+
+// Namespace
+$flexEmbed-namespace:                   $namespace !default;
+
+// Ratios
+$flexEmbed-ratios: (
+    "1by1": (1:1),
+    "2by1": (2:1),
+    "1by2": (1:2),
+    "3by2": (3:2),
+    "4by3": (4:3),
+    "8by5": (8:5),
+    "16by9": (16:9)
+) !default;

@@ -1,0 +1,20 @@
+{% set socialNav = data.fieldSocialMedia.with('item:fieldIcon').all() ?? null %}
+
+{% if socialNav|length %}
+    <div class="Nav Nav--socialMedia">
+        <ul class="Nav-list">
+            {% for item in socialNav %}
+                {% set icon = item.fieldIcon|first|default(null) %}
+                <li class="Nav-item">
+                    <a class="Nav-link" href="{{ item.fieldLink }}" target="_blank" rel="noopener noreferrer">
+                        {{ svg(icon)|attr({
+                            class: 'Nav-icon',
+                            height: 24,
+                            width: icon.getWidth({ height: 24 })
+                        }) }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

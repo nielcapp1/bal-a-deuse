@@ -1,0 +1,48 @@
+/* Grid */
+@if not $grid-legacy {
+
+    .Grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+
+        @for $i from 1 through $grid-columns {
+
+            &--columns-#{$i} {
+                grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+            }
+        }
+    }
+
+    .Grid-cell {
+        width: 100%;
+    }
+
+    // Alignment
+    .Grid--alignCenter {
+        justify-content: center;
+    }
+
+    .Grid--alignRight {
+        justify-content: flex-end;
+    }
+
+    .Grid--alignMiddle {
+        align-items: center;
+    }
+
+    .Grid--alignBottom {
+        align-items: flex-end;
+    }
+
+    // Gutters
+    @each $name, $short in $SIZES {
+        @if ($short == 'md') {
+            $name: '';
+        }
+
+        .#{$grid-namespace}Grid--with#{$name}Gutter {
+            grid-row-gap: u(map-get($grid-gutters, $short));
+            grid-column-gap: u(map-get($grid-gutters, $short));
+        }
+    }
+}

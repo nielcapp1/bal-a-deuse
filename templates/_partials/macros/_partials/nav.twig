@@ -1,0 +1,51 @@
+{% import '_partials/macros' as macros %}
+
+{% set defaults = {
+    class: null,
+    namespace: null,
+    prefix: null,
+    suffix: null,
+    title: {
+        class: null,
+        src: null
+    },
+    toggle: null
+} %}
+{% set options = options ? defaults|merge(options) : defaults %}
+
+<nav class="Nav Nav--{{ options.namespace|lcfirst }}{% if options.class %} {{ options.class }}{% endif %}">
+    {% if options.title %}
+        {% if options.title.src|length %}
+            <{{ options.title.tag|default('h2') }}{% if options.title.class %} class="{{ options.title.class }}"{% endif %}>{{ options.title.src }}</{{ options.title.tag|default('h2') }}>
+        {% endif %}
+    {% endif %}
+
+    {% if options.toggle %}
+        <span class="Nav-toggle u-hidden u-xs-block">
+            {{ svg('assets/img/icons/icon-toggle.svg')|attr({
+                class: 'Toggle-icon'
+            }) }}
+        </span>
+    {% endif %}
+
+    <ul class="Nav-list">
+        {% if options.prefix %}
+            <li class="Nav-item">{{ options.prefix|raw }}</li>
+        {% endif %}
+
+        {% nav item in items %}
+            {% set link = item.fieldLink ?? null %}
+            {% set active = macros.active(link)|default(null) %}
+
+            <li class="Nav-item">
+                <a class="Nav-link{% if active %} is-active{% endif %}" {{ link.getLinkAttributes() }}>
+                    {{ link.getText() }}
+                </a>
+            </li>
+        {% endnav %}
+
+        {% if options.suffix %}
+            <li class="Nav-item">{{ options.suffix|raw }}</li>
+        {% endif %}
+    </ul>
+</nav>

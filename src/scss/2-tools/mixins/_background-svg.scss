@@ -1,0 +1,4 @@
+/* Mixin: Background SVG */
+@mixin background-svg($svg) {
+    background-image: svg-url($svg);
+}

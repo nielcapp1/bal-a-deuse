@@ -1,0 +1,81 @@
+/* Lang */
+.Nav--lang {
+
+    @include mq($from: $viewport--md) {
+        @include position(relative, $z: 1);
+
+        &:not(:hover) {
+
+            .Nav-list {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    @include mq($until: $viewport--md - 1) {
+        margin-top: u($spacing-unit);
+    }
+
+    // Toggle
+    .Nav-toggle {
+        cursor: default;
+        align-items: center;
+        display: flex;
+        text-transform: uppercase;
+
+        .Caret {
+            @include caret(8, 1, bottom, currentColor, $header-bg-color);
+            margin-left: u($spacing-unit--xs);
+        }
+    }
+
+    // List
+    .Nav-list {
+
+        @include mq($from: $viewport--md) {
+            @include transition(#{opacity, visibility});
+            @include position(absolute, $top: 100%, $right: 0);
+            color: $black;
+            background-color: $grey--200;
+            flex-direction: column;
+        }
+
+        @include mq($until: $viewport--md - 1) {
+            justify-content: center;
+            text-transform: uppercase;
+        }
+    }
+
+    // Link
+    .Nav-link {
+        color: currentColor;
+
+        @include mq($from: $viewport--md) {
+            padding: u($spacing-unit--xs, $spacing-unit--xs * 2);
+        }
+
+        @include mq($until: $viewport--md - 1) {
+            padding: u($spacing-unit--xs);
+
+            &::before {
+                content: attr(lang);
+            }
+        }
+
+        &.is-active {
+
+            @include mq($from: $viewport--md) {
+                background-color: $grey--400;
+            }
+
+            @include mq($until: $viewport--md - 1) {
+                font-weight: bolder;
+            }
+        }
+
+        &:not(.is-active):hover {
+            background-color: $grey--300;
+        }
+    }
+}

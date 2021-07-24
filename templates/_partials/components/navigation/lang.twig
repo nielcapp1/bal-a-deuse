@@ -1,0 +1,40 @@
+{% set currentElement = craft.app.urlManager.matchedElement %}
+{% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
+{% set switcherLinks = [] %}
+
+{% for site in sites if site.baseUrl is not empty %}
+    {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
+    {% set url = site.getBaseUrl() %}
+    {% if currentElement %}
+        {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}
+        {% if otherLocaleElement and otherLocaleElement.enabledForSite %}
+            {% set url = otherLocaleElement.url %}
+        {% endif %}
+    {% endif %}
+
+    {% set switcherLinks = switcherLinks|merge([{
+        url: url,
+        title: title,
+        countryCode: site.language|split('-')|last,
+        current: site.id == currentSite.id ? true : false,
+        language: site.language,
+    }]) %}
+{% endfor %}
+
+{%- if switcherLinks|length > 1 -%}
+    <nav class="Nav Nav--lang" aria-label="{{ 'components.languageChoice'|t }}" aria-role="navigation">
+        <span class="Nav-toggle u-xs-hidden u-sm-hidden">
+            {{ craft.app.language }}
+            <span class="Caret"></span>
+        </span>
+        <ul class="Nav-list">
+            {% for switcherLink in switcherLinks %}
+                <li class="Nav-item">
+                    <a class="Nav-link{% if switcherLink.current %} is-active{% endif %}" href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" lang="{{ switcherLink.language }}">
+                        <span class="u-xs-hidden u-sm-hidden">{{ switcherLink.title }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{%- endif -%}

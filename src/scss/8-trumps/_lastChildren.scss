@@ -1,0 +1,10 @@
+/**
+ * Last Children
+ */
+
+.u-lastChildren {
+
+    @include last-children {
+        margin-bottom: 0;
+    }
+}

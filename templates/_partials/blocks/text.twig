@@ -1,0 +1,13 @@
+{% if title %}
+    <h2 class="Alfa">
+        {{ title }}
+    </h2>
+{% endif %}
+{% if text %}
+    <div class="Text">
+        {{ text }}
+    </div>
+{% endif %}
+{% if buttons %}
+    {% include "_partials/blocks/buttons.twig" %}
+{% endif %}

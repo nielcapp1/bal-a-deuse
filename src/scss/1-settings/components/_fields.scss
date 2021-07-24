@@ -1,0 +1,44 @@
+/* Components: Fields */
+
+// Namespace
+$field-namespace:                                     $namespace !default;
+
+// Padding
+$form-element-padding--t:                             $spacing-unit--sm / 3 !default;
+$form-element-padding--r:                             $spacing-unit / 3 !default;
+$form-element-padding--b:                             $form-element-padding--t !default;
+$form-element-padding--l:                             $form-element-padding--r !default;
+
+// Border
+$form-element-border-width:                           1 !default;
+$form-element-border-radius:                          4 !default;
+
+// Different sizes
+$form-element--xs:                                    $spacing-unit * 3 !default;
+$form-element--sm:                                    $spacing-unit * 5 !default;
+$form-element--md:                                    $spacing-unit * 10 !default;
+$form-element--lg:                                    $spacing-unit * 15 !default;
+$form-element--xl:                                    $spacing-unit * 20 !default;
+
+$form-element--default:                               $form-element--lg !default;
+$form-element-fluid:                                  false !default;
+
+// Select icon
+$form-select-element-icon-width:                      40 !default;
+
+// File element
+$form-file-element-button-width:                      100 !default;
+
+// Colors & Styles
+$form-element-color:                                  $grey--800 !default;
+$form-element-background-color:                       $white !default;
+$form-element-border-color:                           $grey--400 !default;
+$form-element-border-color--focus:                    $grey--600 !default;
+$form-element-box-shadow:                             inset 0 1px 2px rgba($black, 0.1) !default;
+$form-element-box-shadow--focus:                      0 0 2px 1px rgba($blue--300, 1) !default;
+
+$form-select-element-icon-background-color:           $grey--200 !default;
+$form-select-element-box-shadow:                      0 1px 2px rgba($black, 0.1) !default;
+
+$form-file-element-button-color:                      $grey--600 !default;
+$form-file-element-button-background-color:           $grey--200 !default;

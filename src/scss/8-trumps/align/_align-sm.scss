@@ -1,0 +1,21 @@
+/**
+ * Align: Small
+ */
+
+@include mq($from: $viewport--sm, $until: $viewport--md - 1) {
+    .u-sm-alignBaseline {
+        vertical-align: baseline !important;
+    }
+
+    .u-sm-alignBottom {
+        vertical-align: bottom !important;
+    }
+
+    .u-sm-alignMiddle {
+        vertical-align: middle !important;
+    }
+
+    .u-sm-alignTop {
+        vertical-align: top !important;
+    }
+}

@@ -1,0 +1,18 @@
+{% if embeddedAsset|default(null) %}
+    {% if embeddedAsset.type != 'link' and (cookies.marketing is not defined or not cookies.marketing) %}
+        <div class="Alert Alert--info">
+            <p>{{ 'cookies.mediaNotice'|t({ class: 'js-cookiesUpdate', url: 'javascript:;' }) }}</p>
+        </div>
+    {% endif %}
+
+    {% include [
+        "_partials/components/media/types/#{embeddedAsset.providerName|camel}.twig",
+        "_partials/components/media/types/#{embeddedAsset.type}.twig",
+        "_partials/components/media/embed.twig"
+    ] %}
+{% else %}
+    {% include "_partials/components/media/#{asset.kind}.twig" with {
+        image: null,
+        video: null
+    } %}
+{% endif %}

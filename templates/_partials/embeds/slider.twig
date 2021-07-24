@@ -1,0 +1,41 @@
+{% import "_partials/macros" as macros %}
+{# Set defaults #}
+{% set defaults = {
+    namespace: "Slider",
+    attr: {
+        class: ['Slider']
+    }
+} %}
+
+{# Merge Attr with Defaults #}
+{% set options = options ? defaults|merge(options, recursive=true) : defaults %}
+{% set options = options|merge({ attr: {
+    class: ["js-#{options.namespace|lcfirst}"]
+}}, recursive=true) %}
+
+<div{{ attr(options.attr) }}>
+    <div class="Slider-items">
+        {% for item in items %}
+            <div class="Slider-item">
+                {% block sBody %}
+                {% endblock %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if options.pagination|default(null) %}
+        <div class="Slider-pagination"></div>
+    {% endif %}
+
+    {% if options.navigation|default(null) %}
+        <button class="Slider-button Slider-button--prev"></button>
+        <button class="Slider-button Slider-button--next"></button>
+    {% endif %}
+
+    {% if options.scrollbar|default(null) %}
+        <div class="Slider-scrollbar"></div>
+    {% endif %}
+</div>
+
+{% block afterEnd %}
+{% endblock %}

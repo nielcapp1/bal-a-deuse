@@ -1,0 +1,32 @@
+/* Components: Button */
+
+// Namespace
+$button-namespace:                    $namespace !default;
+
+// Padding
+$button-padding--t:                   $spacing-unit--sm !default;
+$button-padding--r:                   $spacing-unit--xs * 6 !default;
+$button-padding--b:                   $spacing-unit--sm !default;
+$button-padding--l:                   $spacing-unit--xs * 3 !default;
+
+// Typography
+$button-font-stack:                   $font-josefin-sans !default;
+$button-font-weight:                  bold !default;
+$button-line-height:                  inherit !default;
+$button-font-size:                    14 !default;
+$button-text-align:                   center !default;
+
+// Borders
+$button-border-width:                 2 !default;
+$button-border-radius:                50 !default;
+
+// States
+$button-focus-width:                  0.2rem !default;
+$button-focus-color:                  rgba($blue, 0.25) !default;
+$button-focus-shadow:                 0 0 0 $button-focus-width $button-focus-color !default;
+
+// Transition
+$button-transition:                   (background-color, border-color, box-shadow, color) !default;
+
+// Disabled
+$button-disabled-opacity:             60% !default;

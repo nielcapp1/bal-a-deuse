@@ -1,0 +1,66 @@
+/* Settings: Base */
+
+// Namespace
+$namespace:                            null !default;
+
+// Debugging
+$debug:                                false !default;
+
+// Paths
+$path:                                 '../' !default;
+$path-css:                             '#{$path}css/' !default;
+$path-fonts:                           '#{$path}fonts/' !default;
+$path-img:                             '#{$path}images/' !default;
+$path-js:                              '#{$path}js/' !default;
+$path-sass:                            '#{$path}sass/' !default;
+
+// Units
+$unit:                                 rem !default;
+
+// Typography
+$font-size:                            16 !default;
+$line-height:                          24 !default;
+
+// Font-smoothing
+$font-smoothing:                       true !default;
+
+// Spacing
+$spacing-unit:                         20 !default;
+$spacing-unit--xs:                     $spacing-unit / 4;
+$spacing-unit--sm:                     $spacing-unit / 2;
+$spacing-unit--md:                     $spacing-unit;
+$spacing-unit--lg:                     $spacing-unit * 2;
+$spacing-unit--xl:                     $spacing-unit * 4;
+
+// Breakpoints
+$viewport--xs:                         320 !default;
+$viewport--sm:                         600 !default;
+$viewport--md:                         768 !default;
+$viewport--lg:                         1024 !default;
+$viewport--xl:                         1280 !default;
+
+// Media types
+$mq-type:                              'screen' !default;
+
+// Constants
+$SIZES: (
+    ExtraSmall: 'xs',
+    Small: 'sm',
+    Medium: 'md',
+    Large: 'lg',
+    ExtraLarge: 'xl'
+);
+
+$UNITS: (
+    'px', 'cm', 'mm', '%', 'ch', 'pica', 'in', 'em',
+    'rem', 'pt', 'pc', 'ex', 'vw', 'vh', 'vmin', 'vmax'
+);
+
+$RATIOS: (
+    "1by1": (1:1),
+    "2by1": (2:1),
+    "3by2": (3:2),
+    "4by3": (4:3),
+    "8by5": (8:5),
+    "16by9": (16:9)
+);

@@ -1,0 +1,58 @@
+/* Blocks */
+.Block {
+
+    .is-blue {
+        .Media-object {
+            &::after {
+                background-color: $cc-blue;
+            }
+        }
+    }
+
+    .is-red {
+        .Media-object {
+            &::after {
+                background-color: $cc-red;
+            }
+        }
+    }
+
+     .is-yellow {
+        .Media-object {
+            &::after {
+                background-color: $cc-yellow;
+            }
+        }
+    }
+
+    .is-black {
+        .Media-object {
+            &::after {
+                background-color: $cc-black;
+            }
+        }
+    }
+
+    .Buttons {
+        margin-bottom: -10px;
+    }
+
+    &.has-decoration {
+        overflow: hidden;
+
+        &::before, &::after {
+            content: "";
+            @include position(absolute, $bottom: -80px, $left: -80px, $z: 1);
+            @include dimensions(160);
+            background-color: $white;
+            border-radius: 100%;
+        }
+
+        &::after {
+            bottom: auto;
+            right: -80px;
+            top: -80px;
+            left: auto;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{% if field.showAsRadio or field.showAsCheckboxes %}
+    {% for index, option in field.options %}
+        <label class="Form-field Form-field--{{ field.showAsRadio ? "radio" : "checkbox" }}">
+            <input type="{{ field.showAsRadio ? "radio" : "checkbox" }}" name="{{ field.handle }}[]" value="{{ loop.index0 }}" id="{{ field.idAttribute }}-{{ index }}"{{ option.checked ? " checked" : "" }}
+            />
+            <span class="Form-indicator"></span>
+            <span class="FormField-label">{{- option.label|raw|t -}}</span>
+        </label>
+    {% endfor %}
+{% else %}
+    {{ field.renderInput({
+        class: "Form-field Form-field--select",
+        id: fieldId,
+        errorClass: errorClass,
+        useRequiredAttribute: true
+    }) }}
+{% endif %}

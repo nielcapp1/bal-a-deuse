@@ -1,0 +1,26 @@
+/* Object: Containers */
+.#{$container-namespace}Container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: u($container-width + $structure-responsive-gutter--r + $structure-responsive-gutter--l);
+    padding-right: u($structure-responsive-gutter--r);
+    padding-left: u($structure-responsive-gutter--l);
+    width: 100%;
+
+    @include mq($from: $viewport--md) {
+        max-width: u($container-width + if($structure-responsive-gutter--r > 0 and $structure-gutter--r != $structure-responsive-gutter--r, $structure-gutter--r, null) + if($structure-responsive-gutter--l > 0 and $structure-gutter--l != $structure-responsive-gutter--l, $structure-gutter--l, null));
+        padding-right: if($structure-responsive-gutter--r > 0 and $structure-gutter--r != $structure-responsive-gutter--r, u($structure-gutter--r), null);
+        padding-left: if($structure-responsive-gutter--l > 0 and $structure-gutter--l != $structure-responsive-gutter--l, u($structure-gutter--l), null);
+    }
+
+    @each $size, $width in $container-sizes {
+
+        &--#{$size} {
+            max-width: u($width + $structure-responsive-gutter--r + $structure-responsive-gutter--l);
+
+            @include mq($from: $viewport--md) {
+                max-width: u($width + if($structure-responsive-gutter--r > 0 and $structure-gutter--r != $structure-responsive-gutter--r, $structure-gutter--r, null) + if($structure-responsive-gutter--l > 0 and $structure-gutter--l != $structure-responsive-gutter--l, $structure-gutter--l, null));
+            }
+        }
+    }
+}

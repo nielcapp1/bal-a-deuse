@@ -1,0 +1,6 @@
+/* Mixin: ParentStatus */
+@mixin parent-status($status, $place: suffix) {
+    @include parent-nth-status(-2, $status, $place) {
+        @content;
+    }
+}

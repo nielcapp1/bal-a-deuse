@@ -1,0 +1,35 @@
+{% import '_partials/macros' as macros %}
+
+{% set color = item.fieldColor|default('white') %}
+{% set title = item.fieldTitle|default('') %}
+{% set text = item.fieldText|default('') %}
+{% set buttons = item.fieldButtons.all()|default(null) %}
+{% set placement = item.fieldPlacement|default('left') %}
+{% set media = item.fieldMedia.one()|default(null) %}
+{% set overlay = item.fieldOverlay|default('transparent') %}
+
+<div class="Block Block--text-and-media Block--{{ color }} Block--{{ placement }}">
+    <div class="Container">
+        <div class="Grid Grid--withGutter u-flex {% if placement == 'right' %}u-flexRow{% else %}u-flexRowReverse{% endif %}">
+            <div class="Grid-cell u-size1of2 u-md-sizeFull u-sm-sizeFull u-xs-sizeFull">
+                {% include "_partials/blocks/text.twig" with {
+                    title: title,
+                    text: text,
+                    buttons: buttons
+                } %}
+            </div>
+            <div class="Grid-cell is-{{ overlay }} {% if placement == 'left' %}u-size5of12 u-md-sizeFull u-sm-sizeFull u-xs-sizeFull u-after1of12 u-md-afterNone u-sm-afterNone u-xs-afterNone{% else %}u-size5of12 u-md-sizeFull u-sm-sizeFull u-xs-sizeFull u-before1of12 u-md-beforeNone u-sm-beforeNone u-xs-beforeNone{% endif %}">
+                {% if media %}
+                    {{ macros.srcset(media, {
+                        sizes: [0.5, 1, 2, 3]|map(w => w * 768),
+                        width: 593,
+                        height: 436,
+                        ratio: '593:436',
+                        mode: 'fit',
+                        lazy: false
+                    }) }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

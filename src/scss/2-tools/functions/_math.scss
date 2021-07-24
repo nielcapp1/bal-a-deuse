@@ -1,0 +1,55 @@
+/* Functions: Maps */
+
+// Halve
+@function halve($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `halve()`');
+    }
+
+    @return ($number / 2);
+}
+
+// Third
+@function third($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `third()`');
+    }
+
+    @return ($number / 3);
+}
+
+// Quarter
+@function quarter($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `quarter()`');
+    }
+
+    @return ($number / 4);
+}
+
+// Double
+@function double($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `double()`');
+    }
+
+    @return ($number * 2);
+}
+
+// Triple
+@function triple($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `triple()`');
+    }
+
+    @return ($number * 3);
+}
+
+// Quadruple
+@function quadruple($number) {
+    @if not is-number($number) and not is-measure($number) {
+        @return throw('`#{$number}` is not a number for `quadruple()`');
+    }
+
+    @return ($number * 4);
+}

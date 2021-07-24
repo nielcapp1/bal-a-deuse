@@ -1,0 +1,129 @@
+/* Slider: core */
+.Slider {
+    @include position(relative, $z: 1); /* Fix of Webkit flickering */
+    overflow: hidden;
+
+    &--no-flexbox {
+
+        .Slider-item {
+            float: left;
+        }
+    }
+
+    // Vertical
+    &--vertical > .Slider-items {
+        flex-direction: column;
+    }
+
+    // Wrapper
+    &-items {
+        @include dimensions(100%);
+        @include position(relative, $z: 1);
+        // box-sizing: content-box;
+        display: flex;
+        transition-property: transform;
+    }
+
+    &--android .Slider-item,
+    &-items {
+        transform: translate3d(0px, 0, 0);
+    }
+
+    // Multirow
+    &--multirow > .Slider-items {
+        flex-wrap: wrap;
+    }
+
+    // Freemode
+    &--free-mode > .Slider-items {
+        transition-timing-function: ease-out;
+        margin: 0 auto;
+    }
+
+    // Slide
+    &-item {
+        @include dimensions(100%);
+        flex-shrink: 0;
+        position: relative;
+        transition-property: transform;
+
+        &.is-blank {
+            visibility: hidden;
+        }
+    }
+
+    // Autoheight
+    &--autoheight {
+
+        &,
+        .Slider-item {
+            height: auto;
+        }
+
+        .Slider-items {
+            align-items: flex-start;
+            transition-property: transform, height;
+        }
+    }
+
+    // 3D effects
+    &--3d {
+        perspective: 1200px;
+
+        .Slider-items,
+        .Slider-item,
+        .Slider-item-shadow-left,
+        .Slider-item-shadow-right,
+        .Slider-item-shadow-top,
+        .Slider-item-shadow-bottom,
+        .swiper-cube-shadow {
+            transform-style: preserve-3d;
+        }
+
+        .Slider-item-shadow-left,
+        .Slider-item-shadow-right,
+        .Slider-item-shadow-top,
+        .Slider-item-shadow-bottom {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .Slider-item-shadow-left {
+            background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+        .Slider-item-shadow-right {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+        .Slider-item-shadow-top {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+        .Slider-item-shadow-bottom {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+    }
+
+    // IE10 Windows Phone 8 Fixes
+    &--wp8-horizontal {
+
+        &,
+        & > .Slider-items {
+            touch-action: pan-y;
+        }
+    }
+
+    &--wp8-vertical {
+
+        &,
+        & > .Slider-items {
+            touch-action: pan-x;
+        }
+    }
+}

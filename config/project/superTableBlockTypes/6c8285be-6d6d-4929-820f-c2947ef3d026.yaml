@@ -1,0 +1,338 @@
+field: 9543ff5c-58af-414d-9634-12c7cc9f8fb8 # Tiles
+fieldLayouts:
+  05773e5a-5e44-4a07-af06-ee5c9368f906:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 05f97747-5f1c-4445-8d77-717cc697a17b # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: de7c64da-4e90-4fad-af04-67d6a5997162 # Type
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e63a0816-d52a-41f6-b3e1-f922f6beb1f9 # Grootte
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c4005ddd-30bc-4ecf-bba4-8b92c388365e # Kleur
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a96268ae-adb0-4938-877e-48a813a45fb7 # Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dda60f44-f596-4917-8c95-080fd35f28da # Afbeelding
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  05f97747-5f1c-4445-8d77-717cc697a17b: # Titel
+    contentColumnType: string(1020)
+    fieldGroup: null
+    handle: fieldTitle
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: 255
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a96268ae-adb0-4938-877e-48a813a45fb7: # Link
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldLink
+    instructions: ''
+    name: Link
+    searchable: true
+    settings:
+      allowCustomText: false
+      allowTarget: true
+      autoNoReferrer: true
+      customTextMaxLength: 0
+      customTextRequired: false
+      defaultLinkName: custom
+      defaultText: ''
+      enableAllLinkTypes: true
+      enableAriaLabel: false
+      enableElementCache: false
+      enableTitle: false
+      typeSettings:
+        asset:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        category:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        custom:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        email:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        entry:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        site:
+          enabled: false
+          sites: '*'
+        tel:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        url:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        user:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+    translationKeyFormat: null
+    translationMethod: none
+    type: lenz\linkfield\fields\LinkField
+  c4005ddd-30bc-4ecf-bba4-8b92c388365e: # Kleur
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldColor
+    instructions: ''
+    name: Kleur
+    searchable: true
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - black
+            -
+              - color
+              - '#2B2828'
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - red
+            -
+              - color
+              - '#FF004F'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - blue
+            -
+              - color
+              - '#2934FF'
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - yellow
+            -
+              - color
+              - '#FDC119'
+            -
+              - default
+              - ''
+      palette: ''
+      useConfigFile: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+  dda60f44-f596-4917-8c95-080fd35f28da: # Afbeelding
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldImage
+    instructions: ''
+    name: Afbeelding
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: Afbeelding
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  de7c64da-4e90-4fad-af04-67d6a5997162: # Type
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldType
+    instructions: 'Standaard wordt de tile opgevuld met een kleur op basis van het geselecteerde kleur in het veld ''Kleur''. De optie ''Afbeelding met overlay'' zal enkel werken als er een afbeelding is geselecteerd, terwijl het kleur van de overlay zal bepaald worden door het veld ''Kleur''. Indien er geen afbeelding aanwezig is zal die terugvallen op de optie ''Standaard'' tot dat er een afbeelding is geselecteerd. De optie ''Omranding'' zal de tile voorzien van een omranding op basis van het geselecteerde kleur in het veld ''Kleur''.'
+    name: Type
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Standaard
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Afbeelding met overlay'
+            -
+              - value
+              - overlay
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Omranding
+            -
+              - value
+              - border
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  e63a0816-d52a-41f6-b3e1-f922f6beb1f9: # Grootte
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldSize
+    instructions: ''
+    name: Grootte
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Groot vierkant'
+            -
+              - value
+              - bigSquare
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Klein vierkant'
+            -
+              - value
+              - smallSquare
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Rechthoek (liggend)'
+            -
+              - value
+              - horizontalRectangle
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Rechthoek (rechtstaand)'
+            -
+              - value
+              - verticalRectangle
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown

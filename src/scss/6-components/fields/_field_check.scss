@@ -1,0 +1,83 @@
+/* Fields: check */
+.#{$form-namespace}Form-field--radio,
+.#{$form-namespace}Form-field--checkbox {
+    cursor: pointer;
+    display: flex;
+    user-select: none;
+
+    &:not(:first-of-type) {
+        margin-top: u(halve($spacing-unit--xs));
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        opacity: 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        &:checked ~ .#{$form-namespace}Form-indicator {
+            background-color: $form-element-border-color--focus;
+            border-color: $form-element-border-color--focus;
+        }
+
+        // UI state
+        &:focus ~ .#{$form-namespace}Form-indicator {
+            border-color: $form-element-border-color--focus;
+            box-shadow: if(is-false($form-element-box-shadow--focus), null, $form-element-box-shadow--focus);
+        }
+    }
+
+    .#{$form-namespace}Form-indicator {
+        background-color: $white;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: em(8 * 1.125) em(8 * 1.125);
+        border: 1px solid $form-element-border-color;
+        flex-shrink: 0;
+        height: em($font-size);
+        margin-right: u($spacing-unit--sm);
+        width: em($font-size);
+
+        position: relative;
+        top: em(($line-height - $font-size) / 2);
+    }
+}
+
+// Radio
+&.#{$form-namespace}Form-field--radio {
+
+    > .#{$form-namespace}Form-indicator {
+        border-radius: 100%;
+    }
+
+    input[type="radio"]:checked ~ .#{$form-namespace}Form-indicator {
+
+        &::after {
+            background-color: $white;
+            border-radius: 100%;
+            content: '';
+            height: 0.3em;
+            width: 0.3em;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+// Checkbox
+&.#{$form-namespace}Form-field--checkbox {
+
+    > .#{$form-namespace}Form-indicator {
+        border-radius: if($form-element-border-radius > 0, px($form-element-border-radius), 0);
+    }
+
+    input[type="checkbox"]:checked ~ .#{$form-namespace}Form-indicator {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7.8 6.3'%3E%3Ctitle%3ECheck%3C/title%3E%3Cpath d='M6.4,0,5.7.7,2.9,3.5l-.8-.8L1.4,2,0,3.4l.7.7L2.2,5.6l.7.7.7-.7L7.1,2.1l.7-.7Z' fill='%23fff'/%3E%3C/svg%3E");
+    }
+}

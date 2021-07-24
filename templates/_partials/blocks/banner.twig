@@ -1,0 +1,29 @@
+{% import '_partials/macros' as macros %}
+
+{% set title = item.fieldTitle|default('') %}
+{% set image = item.fieldImage.one()|default(null) %}
+{% set buttons = item.fieldButtons.all()|default(null) %}
+{% set overlay = item.fieldOverlay|default('transparent') %}
+{% set decoration = item.fieldDecoration|default(false) %}
+
+<div class="Block Block--banner Block--white{% if decoration %} has-decoration{% endif %}">
+    <div class="Text">
+        {% include "_partials/blocks/text.twig" with {
+            title: title,
+            text: null,
+            buttons: buttons
+        } %}
+    </div>
+    {% if image %}
+        <div class="is-{{ overlay }}">
+            {{ macros.srcset(image, {
+                sizes: [0.5, 1, 2, 3]|map(w => w * 768),
+                width: 1400,
+                height: 480,
+                ratio: '1400:480',
+                mode: 'fit',
+                lazy: false
+            }) }}
+        </div>
+    {% endif %}
+</div>

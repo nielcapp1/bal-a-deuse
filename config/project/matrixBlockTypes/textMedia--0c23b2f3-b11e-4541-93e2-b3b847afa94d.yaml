@@ -1,0 +1,377 @@
+field: 19f2e599-5908-4b11-a440-48375ecb0914 # Bouwblokken
+fieldLayouts:
+  03db9694-e2a9-4d80-8a75-e3347281ab08:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2c41acdc-937f-4ea6-867e-e911eb54a04d # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4aa25042-6998-4b00-b3f2-38d26a8e27ca # Tekst
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3b54a6ae-e900-4967-8312-02fc312268cc # Buttons
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 08188ff3-9a1c-4241-b86b-43705b404112 # Kleur
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 35f54396-e9a2-41d0-99f0-3111d9df3223 # Plaatsing
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5aaaad18-ef39-4184-be13-62d81754201c # Afbeelding
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fbe7162c-9980-4f78-b87f-6de65025971a # Overlay
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2c41acdc-937f-4ea6-867e-e911eb54a04d: # Titel
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldTitle
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3b54a6ae-e900-4967-8312-02fc312268cc: # Buttons
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldButtons
+    instructions: ''
+    name: Buttons
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 6f173c59-6993-47c6-96c2-daee96d2e530 # Button
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_4_fieldbuttons}}'
+      fieldLayout: matrix
+      maxRows: '2'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: Button
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  4aa25042-6998-4b00-b3f2-38d26a8e27ca: # Tekst
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldText
+    instructions: ''
+    name: Tekst
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  5aaaad18-ef39-4184-be13-62d81754201c: # Afbeelding
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldMedia
+    instructions: ''
+    name: Afbeelding
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: Afbeelding
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  35f54396-e9a2-41d0-99f0-3111d9df3223: # Plaatsing
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldPlacement
+    instructions: 'Kies de positie van de afbeelding'
+    name: Plaatsing
+    searchable: true
+    settings:
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Recht
+            -
+              - value
+              - right
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\RadioButtons
+  08188ff3-9a1c-4241-b86b-43705b404112: # Kleur
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldColor
+    instructions: ''
+    name: Kleur
+    searchable: true
+    settings:
+      options:
+        __assoc__:
+          -
+            - 4
+            -
+              __assoc__:
+                -
+                  - label
+                  - white
+                -
+                  - color
+                  - '#fff'
+                -
+                  - default
+                  - '1'
+          -
+            - 0
+            -
+              __assoc__:
+                -
+                  - label
+                  - black
+                -
+                  - color
+                  - '#2B2828'
+                -
+                  - default
+                  - ''
+          -
+            - 1
+            -
+              __assoc__:
+                -
+                  - label
+                  - red
+                -
+                  - color
+                  - '#FF004F'
+                -
+                  - default
+                  - ''
+          -
+            - 2
+            -
+              __assoc__:
+                -
+                  - label
+                  - blue
+                -
+                  - color
+                  - '#2934FF'
+                -
+                  - default
+                  - ''
+          -
+            - 3
+            -
+              __assoc__:
+                -
+                  - label
+                  - yellow
+                -
+                  - color
+                  - '#FDC119'
+                -
+                  - default
+                  - ''
+      palette: ''
+      useConfigFile: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+  fbe7162c-9980-4f78-b87f-6de65025971a: # Overlay
+    contentColumnType: text
+    fieldGroup: null
+    handle: fieldOverlay
+    instructions: ''
+    name: Overlay
+    searchable: true
+    settings:
+      options:
+        __assoc__:
+          -
+            - 4
+            -
+              __assoc__:
+                -
+                  - label
+                  - transparent
+                -
+                  - color
+                  - '#fff'
+                -
+                  - default
+                  - '1'
+          -
+            - 0
+            -
+              __assoc__:
+                -
+                  - label
+                  - black
+                -
+                  - color
+                  - '#2B2828'
+                -
+                  - default
+                  - ''
+          -
+            - 1
+            -
+              __assoc__:
+                -
+                  - label
+                  - red
+                -
+                  - color
+                  - '#FF004F'
+                -
+                  - default
+                  - ''
+          -
+            - 2
+            -
+              __assoc__:
+                -
+                  - label
+                  - blue
+                -
+                  - color
+                  - '#2934FF'
+                -
+                  - default
+                  - ''
+          -
+            - 3
+            -
+              __assoc__:
+                -
+                  - label
+                  - yellow
+                -
+                  - color
+                  - '#FDC119'
+                -
+                  - default
+                  - ''
+      palette: ''
+      useConfigFile: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: percipioglobal\colourswatches\fields\ColourSwatches
+handle: textMedia
+name: 'Tekst + Media'
+sortOrder: 3

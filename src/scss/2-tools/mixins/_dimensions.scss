@@ -1,0 +1,13 @@
+/* Mixin: Dimensions */
+@mixin dimensions($width: null, $height: $width) {
+    @if not is-measure($height) {
+        $height: u($height);
+    }
+
+    @if not is-measure($width) {
+        $width: u($width);
+    }
+
+    height: $height;
+    width: $width;
+}

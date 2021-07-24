@@ -1,0 +1,103 @@
+{% macro active(link) %}
+    {%- set active = null -%}
+    {%- set type = craft.app.urlManager.matchedElement -%}
+    {%- if type and link.hasElement() -%}
+        {%- set active = (link.getElement().uri == craft.app.request.getSegment(1)) or (type.id == link.getElement().id) -%}
+    {%- else -%}
+        {%- if link.url starts with '/' -%}
+            {%- set active = link.url|split('/')[1] == craft.app.request.getSegment(1) -%}
+        {%- endif -%}
+    {%- endif -%}
+    {{- active ? true : false -}}
+{% endmacro %}
+
+{% macro button(link, config) %}
+    {% include "_partials/macros/_partials/button" with {
+        link: link,
+        options: config
+    } only %}
+{% endmacro %}
+
+{%- macro defaultDateFormat(date, additionalAttributes) -%}
+    {% if date is defined %}
+        {# settings #}
+        {% set format = 'medium' %}
+        {# logic #}
+        {% set attributes = {
+            text: date|date(format),
+            datetime: date|date('yy-m-d')
+        } %}
+        {% if additionalAttributes is defined and additionalAttributes is not iterable %}
+            {% set attributes = attributes|merge({class: additionalAttributes}) %}
+        {% elseif additionalAttributes is iterable %}
+            {% set attributes = attributes|merge(additionalAttributes) %}
+        {% endif %}
+        {{ tag('time', attributes) }}
+    {% endif %}
+{%- endmacro -%}
+
+{%- macro timeAgo(date, additionalAttributes) -%}
+    {% if date is defined %}
+        {# settings #}
+        {% set format = 'medium' %}
+        {% set locale = currentSite.language %}
+        {# logic #}
+        {% set formatter = create({ class: 'craft\\i18n\\Formatter', locale: locale }) %}
+        {% set attributes = {
+            text: formatter.asRelativeTime(date),
+            datetime: date|date('yy-m-d'),
+            title: date|date(format),
+        } %}
+        {% if additionalAttributes is defined and additionalAttributes is not iterable %}
+            {% set attributes = attributes|merge({class: additionalAttributes}) %}
+        {% elseif additionalAttributes is iterable %}
+            {% set attributes = attributes|merge(additionalAttributes) %}
+        {% endif %}
+        {{ tag('time', attributes) }}
+    {% endif %}
+{%- endmacro -%}
+
+{% macro nav(items, config) %}
+    {% include "_partials/macros/_partials/nav" with {
+        items: items,
+        options: config
+    } only %}
+{% endmacro %}
+
+{% macro phone(phone) %}
+  {{ phone|replace('/[^0-9+]/', '') }}
+{% endmacro %}
+
+{% macro srcset(image, config) %}
+    {% include "_partials/macros/_partials/srcset" with {
+        asset: image,
+        options: config
+    } only %}
+{% endmacro %}
+
+{% macro getSrcset(asset, options) %}
+    {% set srcset = [] %}
+    {% for size in options.sizes %}
+        {% set settings = options.settings|merge({
+            width: size,
+            height: options.settings.height / options.settings.width * size
+        }) %}
+
+        {% if options.webp ?? false %}
+            {% set settings = settings|merge({ format: 'webp' }) %}
+        {% endif %}
+
+        {# Default format #}
+        {% set url = asset.getUrl(settings) %}
+        {% set srcset = srcset|merge(["#{url} #{size}#{options.type}"]) %}
+    {% endfor %}
+
+    {{ srcset|join(', ')}}
+{% endmacro %}
+
+{% macro url(routeName, tokens) %}
+    {% include "_partials/macros/_partials/url" with {
+        routeName: routeName,
+        tokens: tokens
+    } only %}
+{% endmacro %}

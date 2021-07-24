@@ -1,0 +1,5 @@
+{% if cookies.marketing is not defined or not cookies.marketing %}
+    {{ stripscript(embeddedAsset.code)|raw }}
+{% else %}
+    {{ embeddedAsset.html }}
+{% endif %}

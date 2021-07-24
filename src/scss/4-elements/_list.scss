@@ -1,0 +1,51 @@
+/* List */
+ol,
+ul {
+    margin-bottom: u($spacing-unit);
+    padding-left: u($list-gutter--l);
+
+    li {
+        margin-bottom: u(2);
+    }
+
+    ol,
+    ul {
+        margin-top: u(4);
+        margin-bottom: u(4);
+    }
+}
+
+// Unordered List
+ul {
+    list-style-type: disc;
+}
+
+ul ul {
+    list-style-type: circle;
+}
+
+ul ul ul {
+    list-style-type: square;
+}
+
+// Ordered List
+ol {
+    list-style-type: decimal;
+}
+
+ol ol {
+    list-style-type: upper-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+ol ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+// Definition List
+dt {
+    font-weight: 700;
+}

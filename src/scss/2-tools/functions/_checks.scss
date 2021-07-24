@@ -1,0 +1,170 @@
+/* Functions: Checks */
+
+// Boolean
+@function is-bool($var) {
+    @return type-of($var) == bool;
+}
+
+// Color
+@function is-color($var) {
+    @return type-of($var) == color;
+}
+
+// Empty
+@function is-empty($var) {
+    @if is-string($var) {
+        @return str-length($var) == 0;
+    }
+
+    @if is-list($var) {
+        @return length($var) == 0;
+    }
+
+    @if is-map($var) {
+        @return length(map-keys($var)) == 0;
+    }
+
+    @if is-false($var) or is-null($var) {
+        @return true;
+    }
+
+    @return false;
+}
+
+// False
+@function is-false($var) {
+    @if is-bool($var) {
+        @if not $var {
+            @return true;
+        }
+    }
+
+    @return false;
+}
+
+// Float
+@function is-float($var) {
+    @if $var == 0 {
+        @return true;
+    }
+
+    @if not is-number($var) {
+        @return false;
+    }
+
+    @if not is-integer($var) {
+        @return true;
+    }
+
+    @return false;
+}
+
+// Integer
+@function is-integer($var) {
+    @if not is-number($var) {
+        @return false;
+    }
+
+    @if round($var) != $var {
+        @return false;
+    }
+
+    @return true;
+}
+
+// List
+@function is-list($var) {
+    @return type-of($var) == list;
+}
+
+// Map
+@function is-map($var) {
+    @return type-of($var) == map;
+}
+
+// Measure
+@function is-measure($var) {
+    @if type-of($var) == number {
+        @if unitless($var) {
+            @return false;
+        }
+    } @else {
+        @return false;
+    }
+
+    @if not index($UNITS, unit($var)) {
+        @return false;
+    }
+
+    @return true;
+}
+
+// Negative
+@function is-negative($var) {
+    @if is-number($var) {
+        @return $var < 0;
+    }
+
+    @return false;
+}
+
+// Null
+@function is-null($var) {
+    @if $var == null {
+        @return true;
+    }
+
+    @return false;
+}
+
+// Number
+@function is-number($var) {
+    @if type-of($var) == number {
+        @return unitless($var);
+    }
+
+    @return false;
+}
+
+// Numeric
+@function is-numeric($var) {
+    @if not is-integer($var) {
+        @return false;
+    }
+
+    @return is-positive($var);
+}
+
+// Positive
+@function is-positive($var) {
+    @if is-number($var) {
+        @return $var >= 0;
+    }
+
+    @return false;
+}
+
+// String
+@function is-string($var) {
+    @return type-of($var) == string;
+}
+
+// True
+@function is-true($var) {
+    @if is-bool($var) {
+        @if $var {
+            @return true;
+        }
+    }
+
+    @return false;
+}
+
+// Unit
+@function is-unit($var) {
+    @if is-string($var) {
+        @return if(index($UNITS, $var), true, false);
+    }
+
+    @return false;
+}

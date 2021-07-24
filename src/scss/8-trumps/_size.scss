@@ -1,0 +1,81 @@
+/* Size */
+@if not $grid-legacy {
+
+    @for $i from 1 through $grid-columns {
+        @if ($grid-columns % $i == 0) {
+            @for $x from 1 through $i {
+                @if ($x != $i) {
+                    .u-size#{$x}of#{$i} {
+                        grid-column-end: span ($grid-columns * ($x / $i)) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // Breakpoints
+    @each $breakpoint in $grid-breakpoints {
+        $key: nth($breakpoint, 1);
+        $value: nth($breakpoint, 2);
+        $index: index($grid-breakpoints, ($key $value));
+        $from: if($index != 1, nth(map-values($grid-breakpoints), $index), null);
+        $until: if($index != length($grid-breakpoints), nth(map-values(($grid-breakpoints)), $index + 1) - 1, null);
+
+        @include mq($from: $from, $until: $until) {
+
+            @for $i from 1 through $grid-columns {
+                @if ($grid-columns % $i == 0) {
+                    @for $x from 1 through $i {
+                        @if ($x != $i) {
+                            .u-#{$key}-size#{$x}of#{$i} {
+                                grid-column-end: span ($grid-columns * ($x / $i)) !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    // Properties
+    .u-sizeFull {
+        grid-column-end: span ($grid-columns) !important;
+    }
+
+    @each $breakpoint in $grid-breakpoints {
+        $key: nth($breakpoint, 1);
+        $value: nth($breakpoint, 2);
+        $index: index($grid-breakpoints, ($key $value));
+        $from: if($index != 1, nth(map-values($grid-breakpoints), $index), null);
+        $until: if($index != length($grid-breakpoints), nth(map-values(($grid-breakpoints)), $index + 1) - 1, null);
+
+        @include mq($from: $from, $until: $until) {
+
+            .u-#{$key}-sizeFull {
+                grid-column-end: span ($grid-columns) !important;
+            }
+        }
+    }
+
+    // @for $column from 1 through $grid-columns {
+
+    //     @for $i from 1 through $column {
+    //         @if ($column % $i == 0) {
+    //             @for $x from 1 through $i {
+    //                 @if ($x != $i) {
+    //                     .Grid--columns-#{$column} .u-size#{$x}of#{$i} {
+    //                         grid-column-end: span ($column * ($x / $i)) !important;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     // Properties
+    //     .Grid--columns-#{$column} .u-sizeFull {
+    //         grid-column-end: span ($column) !important;
+    //     }
+    // }
+}

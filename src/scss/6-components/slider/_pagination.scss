@@ -1,0 +1,170 @@
+/* Slider: pagination */
+.Slider-pagination {
+    @include transition(opacity, 300ms);
+    @include position(absolute, $z: 10);
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+
+    &.is-hidden {
+        opacity: 0;
+    }
+
+    &.is-locked {
+        display: none;
+    }
+}
+
+// Common Styles
+.Slider-pagination--fraction,
+.Slider-pagination--custom,
+.Slider--horizontal > .Slider-pagination--bullets {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+// Bullets
+.Slider-pagination--bullets-dynamic {
+    overflow: hidden;
+    font-size: 0;
+
+    .Slider-pagination-item {
+        transform: scale(0.33);
+        position: relative;
+    }
+
+    .is-active {
+        transform: scale(1);
+    }
+
+    .is-active-main {
+        transform: scale(1);
+    }
+
+    .is-active-prev {
+        transform: scale(0.66);
+    }
+
+    .is-active-prev-prev {
+        transform: scale(0.33);
+    }
+
+    .is-active-next {
+        transform: scale(0.66);
+    }
+
+    .is-active-next-next {
+        transform: scale(0.33);
+    }
+}
+
+.Slider-pagination-item {
+    @include dimensions(8);
+    background: $black;
+    border-radius: 100%;
+    display: inline-block;
+    opacity: 0.2;
+
+    @at-root button#{&} {
+        border: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        appearance: none;
+    }
+
+    .is-clickable & {
+        cursor: pointer;
+    }
+
+    &.is-active {
+        background-color: $primary-color;
+        opacity: 1;
+    }
+}
+
+
+.Slider--vertical {
+
+    > .Slider-pagination--bullets {
+        right: 10px;
+        top: 50%;
+        transform: translate3d(0px, -50%, 0);
+
+        .Slider-pagination-item {
+            display: block;
+            margin-right: u(6px);
+            margin-left: u(6px);
+        }
+
+        &.Slider-pagination--bullets-dynamic {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+
+            .Slider-pagination-item {
+                display: inline-block;
+                transition-property: transform, top;
+                transition-duration: 200ms;
+            }
+        }
+    }
+}
+
+.Slider--horizontal {
+
+    > .Slider-pagination--bullets {
+
+        .Slider-pagination-item {
+            margin: 0 4px;
+        }
+
+        &.Slider-pagination--bullets-dynamic {
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+
+            .Slider-pagination-item {
+                transition-property: transform, left;
+                transition-duration: 200ms;
+            }
+        }
+    }
+
+    &.Slider--rtl > .Slider-pagination--bullets-dynamic .Slider-pagination-item {
+        transition-property: transform, right;
+        transition-duration: 200ms;
+    }
+}
+
+// Progress
+.Slider-pagination--progressbar {
+    background-color: rgba($black, 0.25);
+    position: absolute;
+
+    .Slider-pagination-fill {
+        @include dimensions(100%);
+        @include position(absolute, $top: 0, $left: 0);
+        background-color: $primary-color;
+        transform: scale(0);
+        transform-origin: left top;
+    }
+
+    .Slider--rtl & .Slider-pagination-fill {
+        transform-origin: right top;
+    }
+
+    .Slider--horizontal > &,
+    .Slider--vertical > &.Slider-pagination--progressbar-opposite {
+        @include dimensions(100%, 4);
+        left: 0;
+        top: 0;
+    }
+
+    .Slider--vertical > &,
+    .Slider--horizontal > &.Slider-pagination--progressbar-opposite {
+        @include dimensions(4, 100%);
+        left: 0;
+        top: 0;
+    }
+}

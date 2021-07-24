@@ -1,0 +1,75 @@
+/* Fields: file */
+.#{$form-namespace}Form-field--file {
+    cursor: pointer;
+    display: block;
+
+    input[type='file'] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        // UI state
+        &:focus ~ .#{$form-namespace}Form-indicator {
+            border-color: $form-element-border-color--focus;
+            box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-element-box-shadow--focus);
+
+            // Error
+            .#{$form-namespace}Form-item.is-error & {
+                box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-error-element-box-shadow);
+            }
+
+            // Success
+            .#{$form-namespace}Form-item.is-success & {
+                box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow) if(is-false($form-element-box-shadow) or is-false($form-element-box-shadow--focus), null, #{','}) if(is-false($form-element-box-shadow--focus), null, $form-success-element-box-shadow);
+            }
+        }
+    }
+
+    .#{$form-namespace}Form-indicator {
+        @include font-smoothing($font-smoothing);
+        background-color: $form-element-background-color;
+        border-radius: if($form-element-border-radius > 0, px($form-element-border-radius), 0);
+        border: px($form-element-border-width) solid $form-element-border-color;
+        box-shadow: if(is-false($form-element-box-shadow), null, $form-element-box-shadow);
+        color: $form-element-color;
+        display: block;
+        line-height: normal;
+        overflow: hidden;
+        padding: em($form-element-padding--t, $form-element-padding--r, $form-element-padding--b, $form-element-padding--l);
+        position: relative;
+        white-space: nowrap;
+        width: 100%;
+
+        &::before {
+            @extend .u-textTruncate !optional;
+            content: attr(data-file-text);
+            display: block;
+            padding-right: u($form-file-element-button-width);
+        }
+
+        &::after {
+            background-color: $form-file-element-button-background-color;
+            border-left: px($form-element-border-width) solid $form-element-border-color;
+            color: $form-file-element-button-color;
+            content: attr(data-file-button);
+            padding: em($form-element-padding--t, $form-element-padding--r, $form-element-padding--b, $form-element-padding--l);
+            text-align: center;
+            width: u($form-file-element-button-width);
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+
+    // Fixed or fluid width
+    @if is-false($form-element-fluid) and not is-null($form-element--default) {
+        @include mq($from: $viewport--sm) {
+            max-width: u($form-element--default);
+        }
+    }
+}

@@ -1,0 +1,78 @@
+field: 1f0701d8-073f-4b68-b86c-3e47a9081329 # Sociale media
+fieldLayouts:
+  4254e35d-a273-4fd7-a075-6e32a43e8492:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 95ce3781-d4c0-4b6d-a33d-892c5d60de78 # Icoon
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: db1f6acc-a458-4d39-b9c1-c26ac58aacf7 # Link
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  95ce3781-d4c0-4b6d-a33d-892c5d60de78: # Icoon
+    contentColumnType: string
+    fieldGroup: null
+    handle: fieldIcon
+    instructions: ''
+    name: Icoon
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - svg
+      defaultUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: Icoon
+      showSiteMenu: false
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:2369bbf4-1a1b-475b-a0b8-986b13ac178f' # Bestanden
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  db1f6acc-a458-4d39-b9c1-c26ac58aacf7: # Link
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: fieldLink
+    instructions: ''
+    name: Link
+    searchable: true
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: item
+name: Item
+sortOrder: 1

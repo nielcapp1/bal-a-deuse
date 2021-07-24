@@ -1,0 +1,41 @@
+/* Mixin: Font-size */
+@mixin font-size($value, $margin-bottom: false) {
+    @if not is-number($value) and not is-measure($value) {
+        @warn throw('`#{$value}` is not a value for `font-size()`');
+    }
+
+    // Calculate `margin-bottom` if set to true
+    $_margin-bottom: null;
+
+    @if is-bool($margin-bottom) and is-true($margin-bottom) {
+        @if $unit == 'em' {
+            $_margin-bottom: add-unit($line-height / $value, em);
+        } @else if $unit == 'rem' {
+            $_margin-bottom: add-unit($line-height / $font-size, rem);
+        } @else {
+            $_margin-bottom: add-unit($line-height, px);
+        }
+    } @else if is-number($margin-bottom) or is-measure($margin-bottom) {
+        @if $unit == 'em' {
+            $_margin-bottom: add-unit($margin-bottom / $value, em);
+        } @else {
+            $_margin-bottom: u($margin-bottom);
+        }
+    }
+
+    // Calculate `line-height`
+    $_line-height: null;
+
+    @if ($line-height / $value) <= 1 {
+        @if ($line-height / $value) < 0.5 {
+            $_line-height: 1.1;
+        } @else {
+            $_line-height: 1.2;
+        }
+    }
+
+    // Output properties and values
+    margin-bottom: $_margin-bottom;
+    font-size: u($value);
+    line-height: $_line-height;
+}

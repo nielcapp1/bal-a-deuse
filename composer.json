@@ -1,0 +1,47 @@
+{
+  "name": "nielcapp1/craft-starter",
+  "description": "A Craft CMS site starter for Clé Codée",
+  "type": "project",
+  "require": {
+    "clubstudioltd/craft-asset-rev": "^6.0",
+    "craftcms/cms": "^3.6.0",
+    "craftcms/redactor": "^2.5.0",
+    "dolphiq/redirect": "^1.0",
+    "enovatedesign/craft-style-inliner": "^2.1",
+    "ether/splash": "^3.0",
+    "nystudio107/craft-minify": "^1.2",
+    "nystudio107/craft-typogrify": "^1.1",
+    "percipioglobal/craft-colour-swatches": "1.4.1.1",
+    "sebastianlenz/linkfield": "^2.0-beta",
+    "spicyweb/craft-embedded-assets": "^2.0",
+    "verbb/default-dashboard": "^1.0",
+    "verbb/expanded-singles": "1.1.4",
+    "verbb/smith": "1.1.14",
+    "verbb/super-table": "2.6.8",
+    "vlucas/phpdotenv": "^2.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "clécodée\\base\\": "modules/",
+      "clécodée\\componentpreview\\": "modules/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": [
+      "@php craft clear-caches/all"
+    ],
+    "post-install-cmd": [
+      "@php craft clear-caches/all"
+    ]
+  }
+}

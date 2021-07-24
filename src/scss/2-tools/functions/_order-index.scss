@@ -1,0 +1,4 @@
+/* Functions: Order index */
+@function order-index($i, $index) {
+    @return ($index + $i);
+}

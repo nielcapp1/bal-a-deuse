@@ -1,0 +1,24 @@
+/* General */
+
+// LazySizes
+.LazyLoad,
+.LazyLoading {
+    opacity: 0;
+}
+
+.LazyLoaded {
+    @include transition(opacity, 300ms);
+    opacity: 1;
+}
+
+// Tabbing
+body:not(.is-tabbing) {
+
+    span:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+    }
+}

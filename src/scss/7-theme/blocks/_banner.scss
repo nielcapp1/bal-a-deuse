@@ -1,0 +1,88 @@
+.Block {
+
+    &--banner {
+        position: relative;
+
+        .Button {
+            &--primary {
+                background-color: $white;
+                color: $cc-black;
+                border-color: $white;
+
+                &:active,
+                &.is-active {
+                    background-color: darken($white, 10%);
+                    border-color: darken($white, 12.5%);
+                    color: colorInvert(darken($white, 10%));
+                }
+
+                &:focus,
+                &.is-focus {
+                    background-color: $white;
+                    border-color: $white;
+                    box-shadow: 0 0 0 $button-focus-width rgba(mix(colorInvert($white), $white, 15%), .5);
+                    color: colorInvert($white);
+                }
+
+                &:hover,
+                &.is-hover {
+                    background-color: darken($white, 7.5%);
+                    border-color: darken($white, 10%);
+                    color: colorInvert(darken($white, 7.5%));
+                }
+
+                &.Button--outline {
+                    background-color: transparent;
+                    color: $white;
+
+                    &:active,
+                    &:hover,
+                    &.is-active,
+                    &.is-hover {
+                        background-color: $white;
+                        border-color: $white;
+                        color: colorInvert($white);
+                    }
+                }                        
+            }
+        }
+
+        .Text {
+            align-items: center;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            padding: u(80, 20);
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+
+            .Alfa {
+                font-size: u(64);
+                line-height: u(77);
+            }
+        }
+
+        .Media {
+            &-object {
+                height: 100%;
+                min-height: 480px;
+
+                &::after {
+                    content: "";
+                    @include position(absolute, 0, 0, 0, 0, 1);
+                    width: 100%;
+                    height: 100%;
+                    mix-blend-mode: color;
+                }
+            }
+
+            &-image {
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
+}

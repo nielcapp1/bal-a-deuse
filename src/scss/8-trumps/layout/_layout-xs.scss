@@ -1,0 +1,13 @@
+/**
+ * Lay-out: Extra Small
+ */
+
+@include mq($until: $viewport--sm - 1) {
+    .u-xs-floatLeft {
+        float: left !important;
+    }
+
+    .u-xs-floatRight {
+        float: right !important;
+    }
+}
