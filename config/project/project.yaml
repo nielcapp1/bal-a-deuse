@@ -1,4 +1,4 @@
-dateModified: 1627143418
+dateModified: 1627207911
 email:
   fromEmail: cappelleniels@hotmail.com
   fromName: Bal-à-Deuse
@@ -123,7 +123,7 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: Bal-à-Deuse
   schemaVersion: 3.7.7
