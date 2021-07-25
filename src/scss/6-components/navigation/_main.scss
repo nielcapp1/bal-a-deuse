@@ -1,5 +1,6 @@
 /* Main */
 .Nav--main {
+    font-family: $font-josefin-sans;
 
     @include mq($until: $viewport--md - 1) {
         display: flex;
