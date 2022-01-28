@@ -1,4 +1,4 @@
-dateModified: 1643389266
+dateModified: 1643390423
 email:
   fromEmail: cappelleniels@hotmail.com
   fromName: Bal-à-Deuse
@@ -93,6 +93,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.5
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.11
   smith:
     edition: standard
     enabled: true

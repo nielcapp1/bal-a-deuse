@@ -10,6 +10,7 @@
     "enovatedesign/craft-style-inliner": "^2.1",
     "ether/splash": "^3.0",
     "nystudio107/craft-minify": "^1.2",
+    "nystudio107/craft-seomatic": "3.4.22",
     "nystudio107/craft-typogrify": "^1.1",
     "percipioglobal/craft-colour-swatches": "1.4.1.1",
     "sebastianlenz/linkfield": "^2.0-beta",
