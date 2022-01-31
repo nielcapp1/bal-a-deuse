@@ -1,0 +1,20 @@
+
+{% js %}
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '348049040510782',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v10.0'
+        });
+    };
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/nl_BE/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+{% endjs %}
+
+<div class="fb-customerchat" attribution=setup_tool page_id="108145811337731" theme_color="#3A5CE4"></div>
